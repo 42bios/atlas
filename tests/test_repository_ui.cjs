@@ -1,0 +1,34 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+let form={textContent:''},markup='';const ctx=vm.createContext({configureAddin(){},document:{addEventListener(){},querySelectorAll:()=>[]},esc:v=>String(v??'').replace(/[<>"&]/g,''),field:(label,key,value,type,extra)=>`FIELD:${key}:${type}:${extra}`,selectField:()=>'',modal:(title,html)=>{markup=html},$:()=>form,atlasAddins:{packages:[{id:'repo-1',name:'Example',version:'1.0.0',repository:'https://github.com/example/connector',repositoryName:'example/connector',manifest:{configuration:[{key:'endpoint',label:'Endpoint',type:'url',required:true}],credentialRequired:true}}],instances:[]}});
+vm.runInContext(fs.readFileSync('static/modules/connectors/repository-addins.js','utf8'),ctx);
+vm.runInContext("configureAddin('repo-1')",ctx);assert.ok(markup.includes('FIELD:config_endpoint:url:required'));assert.ok(markup.includes('isolated worker'));assert.equal(form.textContent,'Save connector');
+vm.runInContext("addRepository()",ctx);assert.ok(markup.includes('without running'));assert.equal(form.textContent,'Download & review');
+console.log('Repository UI checks passed: manifest configuration, explicit trust disclosure and download-before-install flow.');
+
+(async()=>{
+ const catalog={innerHTML:'',querySelector:()=>null},external={innerHTML:''}; let fixture;
+ const render=vm.createContext({AbortController,document:{addEventListener(){},querySelectorAll:()=>[]},$:selector=>selector==='#addin-catalog'?catalog:external,esc:v=>String(v??''),pill:v=>v,repositoryPackageDetails:p=>p.repository||'',clearTimeout(){},setTimeout(){},state:{devices:[],services:[]},fetch:async url=>({ok:true,json:async()=>url==='/api/v1/addins'?fixture:[]})});
+ vm.runInContext(fs.readFileSync('static/modules/connectors/addins.js','utf8'),render);
+ const bundled=[{id:'portainer',name:'Portainer',installed:true,available:true},{id:'snmp',name:'SNMP discovery',installed:false,available:true},{id:'kubernetes',name:'Kubernetes',available:true},{id:'unifi',name:'UniFi',available:false}];
+ fixture={packages:bundled,instances:[{id:'existing',name:'My Portainer',plugin:'portainer',source:'existing',enabled:true,interval:900}]};
+ await vm.runInContext('loadAtlasAddins()',render);
+ assert.ok(catalog.innerHTML.includes('Installed extension packages'));
+ assert.ok(catalog.innerHTML.includes('data-addin-configure="portainer"'));
+ assert.ok(catalog.innerHTML.includes('data-addin-edit="existing"'));
+ for(const name of ['SNMP discovery','Kubernetes','UniFi']) assert.ok(!catalog.innerHTML.includes(name),name);
+ fixture={packages:bundled.filter(p=>!p.installed),instances:[]};
+ await vm.runInContext('loadAtlasAddins()',render);
+ assert.ok(catalog.innerHTML.includes('No systems connected yet'));
+ assert.ok(!catalog.innerHTML.includes('data-addin-install='));
+ fixture={packages:[...bundled,{id:'community',name:'Community connector',repository:'https://github.com/example/connector',available:true}],instances:[]};
+ await vm.runInContext('loadAtlasAddins()',render);
+ assert.ok(!catalog.innerHTML.includes('No add-in repositories yet'));
+ assert.ok(catalog.innerHTML.includes('Community connector'));
+ assert.ok(!catalog.innerHTML.includes('SNMP discovery'));
+ console.log('Add-in catalog: empty repositories, existing connectors and repository entries verified.');
+})().catch(error=>{console.error(error);process.exitCode=1;});
+vm.runInContext('configureGitHubAccess()',ctx);
+assert.ok(markup.includes('Contents: read-only'));
+assert.ok(markup.includes('type="password"'));
+assert.ok(markup.includes('api.github.com'));
+assert.equal(form.textContent,'Save GitHub access');

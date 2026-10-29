@@ -1,0 +1,58 @@
+services:
+  atlas:
+    build: .
+    ports:
+      - "${ATLAS_BIND:-127.0.0.1}:${ATLAS_PORT:-8097}:8765"
+    volumes:
+      - ./data:/data
+      - ./connectors:/connectors:ro
+      - ./worker-jobs:/worker-jobs
+    restart: unless-stopped
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp:size=16m
+    environment:
+      ATLAS_WORKER_QUEUE: /worker-jobs
+      ATLAS_CONNECTOR_CALLBACK_URL: ${ATLAS_CONNECTOR_CALLBACK_URL:-http://atlas-connector-callback:8765}
+      ATLAS_WORKER_SUBNETS: ${ATLAS_WORKER_SUBNETS:-}
+    networks:
+      default:
+      connector-workers:
+        aliases:
+          - ${ATLAS_WORKER_CALLBACK_ALIAS:-atlas-connector-callback}
+
+  connector-runner:
+    build:
+      context: .
+      dockerfile: runner/Dockerfile
+    image: atlas-connector-runner:1
+    restart: unless-stopped
+    network_mode: none
+    read_only: true
+    cap_drop:
+      - ALL
+    user: "1000:1000"
+    group_add:
+      - "${ATLAS_DOCKER_GID:-0}"
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./worker-jobs:/jobs
+    environment:
+      ATLAS_WORKER_QUEUE: /jobs
+      ATLAS_WORKER_HOST_QUEUE: ${ATLAS_WORKER_HOST_QUEUE:-}
+      ATLAS_WORKER_IMAGE: atlas-connector-worker:1
+      ATLAS_WORKER_NETWORK: ${ATLAS_WORKER_NETWORK:-atlas-connector-workers}
+    tmpfs:
+      - /tmp:size=16m
+    stop_grace_period: 30s
+
+networks:
+  connector-workers:
+    external: true
+    name: ${ATLAS_WORKER_NETWORK:-atlas-connector-workers}

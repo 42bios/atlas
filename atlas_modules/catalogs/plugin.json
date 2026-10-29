@@ -1,0 +1,86 @@
+{
+  "id": "catalogs",
+  "name": "Device catalogs",
+  "description": "Repository collections, immutable device specifications and model selection.",
+  "version": "1.0.0",
+  "requires": [
+    "core",
+    "hardware"
+  ],
+  "pages": [
+    {
+      "id": "catalogs",
+      "label": "Device catalogs",
+      "icon": "box",
+      "group": "Manage",
+      "order": 7
+    }
+  ],
+  "pluginApi": 1,
+  "backendRoutes": [
+    [
+      "POST",
+      "/api/catalog/import"
+    ],
+    [
+      "GET",
+      "/api/v1/catalogs"
+    ]
+  ],
+  "assets": [
+    {
+      "path": "/modules/catalogs/catalog.js",
+      "owner": "catalogs",
+      "legacy": "/catalog.js",
+      "order": 5
+    },
+    {
+      "path": "/modules/catalogs/entry.js",
+      "owner": "catalogs",
+      "order": 107,
+      "legacy": null
+    },
+    {
+      "path": "/modules/catalogs/workflows.js",
+      "owner": "catalogs",
+      "legacy": null,
+      "order": 11.05
+    }
+  ],
+  "bindings": {
+    "/modules/catalogs/catalog.js": [
+      {
+        "name": "catalogIntegration",
+        "writable": true
+      }
+    ],
+    "/modules/catalogs/entry.js": [],
+    "/modules/catalogs/workflows.js": [
+      {
+        "name": "catalogQuery",
+        "writable": true
+      },
+      {
+        "name": "catalogPage",
+        "writable": true
+      },
+      {
+        "name": "catalogFilters",
+        "writable": true
+      },
+      {
+        "name": "catalogSourceManager",
+        "writable": true
+      },
+      {
+        "name": "catalogMatchingModels",
+        "writable": true
+      },
+      {
+        "name": "renderCatalogs",
+        "writable": true
+      }
+    ]
+  },
+  "required": true
+}

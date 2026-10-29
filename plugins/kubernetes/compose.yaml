@@ -1,0 +1,22 @@
+services:
+  kubernetes-connector:
+    build:
+      context: ../..
+      dockerfile: plugins/kubernetes/Dockerfile
+    environment:
+      ATLAS_URL: ${ATLAS_URL:?Set ATLAS_URL to your Atlas instance URL}
+      CONNECTOR_ID: ${CONNECTOR_ID:-kubernetes-main}
+      KUBERNETES_URL: ${KUBERNETES_URL:-}
+      CLUSTER_NAME: ${CLUSTER_NAME:-Kubernetes}
+      KUBERNETES_TOKEN_FILE: /run/secrets/kubernetes_token
+      ATLAS_TOKEN_FILE: /run/secrets/atlas_token
+      CA_FILE: /run/secrets/cluster_ca
+      RUN_ONCE: ${RUN_ONCE:-true}
+    volumes:
+      - ./secrets/atlas_token:/run/secrets/atlas_token:ro
+      - ./secrets/kubernetes_token:/run/secrets/kubernetes_token:ro
+      - ./secrets/cluster_ca:/run/secrets/cluster_ca:ro
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    tmpfs: [/tmp]

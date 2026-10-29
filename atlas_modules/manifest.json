@@ -1,0 +1,237 @@
+[
+  {
+    "id": "applications",
+    "name": "Applications",
+    "description": "VMs, containers, stacks, hosting and application dependency maps.",
+    "version": "1.0.0",
+    "requires": [
+      "core",
+      "hardware"
+    ],
+    "pages": [
+      {
+        "id": "services",
+        "label": "Applications",
+        "icon": "box",
+        "group": "Inventory",
+        "order": 3
+      }
+    ],
+    "pluginApi": 1,
+    "required": true
+  },
+  {
+    "id": "catalogs",
+    "name": "Device catalogs",
+    "description": "Repository collections, immutable device specifications and model selection.",
+    "version": "1.0.0",
+    "requires": [
+      "core",
+      "hardware"
+    ],
+    "pages": [
+      {
+        "id": "catalogs",
+        "label": "Device catalogs",
+        "icon": "box",
+        "group": "Manage",
+        "order": 7
+      }
+    ],
+    "pluginApi": 1,
+    "required": true
+  },
+  {
+    "id": "connections",
+    "name": "Connections",
+    "description": "Network, Wi-Fi, fiber, DAC/AOC, power and logical terminations.",
+    "version": "1.0.0",
+    "requires": [
+      "core",
+      "hardware"
+    ],
+    "pages": [
+      {
+        "id": "connections",
+        "label": "Connections",
+        "icon": "link",
+        "group": "Network",
+        "order": 6
+      }
+    ],
+    "pluginApi": 1,
+    "required": true
+  },
+  {
+    "id": "connectors",
+    "name": "Connectors & add-ins",
+    "description": "Connector contracts, snapshots, native module instances and import jobs.",
+    "version": "1.0.0",
+    "requires": [
+      "core"
+    ],
+    "optional": [
+      "settings",
+      "applications"
+    ],
+    "pages": [
+      {
+        "id": "marketplace",
+        "label": "Marketplace",
+        "icon": "grid",
+        "group": "Manage",
+        "order": 7.5
+      }
+    ],
+    "required": true,
+    "pluginApi": 1
+  },
+  {
+    "id": "core",
+    "name": "Atlas core",
+    "description": "Storage, record identity, revision conflicts, shared UI and navigation.",
+    "version": "1.0.0",
+    "requires": [],
+    "pages": [],
+    "required": true,
+    "pluginApi": 1,
+    "optional": [
+      "hardware",
+      "applications",
+      "ipam",
+      "connections",
+      "topology",
+      "catalogs",
+      "connectors",
+      "settings"
+    ]
+  },
+  {
+    "id": "hardware",
+    "name": "Hardware & racks",
+    "description": "Devices, interfaces, rack placement, shelves, power equipment and front/rear artwork.",
+    "version": "1.0.0",
+    "requires": [
+      "core"
+    ],
+    "pages": [
+      {
+        "id": "racks",
+        "label": "Racks",
+        "icon": "rack",
+        "group": "Inventory",
+        "order": 1
+      },
+      {
+        "id": "devices",
+        "label": "Devices",
+        "icon": "server",
+        "group": "Inventory",
+        "order": 2
+      }
+    ],
+    "pluginApi": 1,
+    "optional": [
+      "connections",
+      "applications"
+    ],
+    "required": true
+  },
+  {
+    "id": "ipam",
+    "name": "IP & networks",
+    "description": "Prefixes, VLANs, addresses, reservations and allocation planning.",
+    "version": "1.0.0",
+    "requires": [
+      "core",
+      "hardware"
+    ],
+    "pages": [
+      {
+        "id": "ips",
+        "label": "IP & networks",
+        "icon": "globe",
+        "group": "Network",
+        "order": 5
+      }
+    ],
+    "pluginApi": 1,
+    "required": true
+  },
+  {
+    "id": "overview",
+    "name": "Overview",
+    "description": "Inventory summaries and workspace entry points.",
+    "version": "1.0.0",
+    "requires": [
+      "core"
+    ],
+    "pages": [
+      {
+        "id": "overview",
+        "label": "Overview",
+        "icon": "grid",
+        "group": "Inventory",
+        "order": 0
+      }
+    ],
+    "required": true,
+    "pluginApi": 1,
+    "optional": [
+      "hardware",
+      "applications",
+      "ipam",
+      "connections",
+      "connectors"
+    ]
+  },
+  {
+    "id": "settings",
+    "name": "Sources & settings",
+    "description": "Workspace configuration, module information, sources and backup/restore.",
+    "version": "1.0.0",
+    "requires": [
+      "core",
+      "connectors"
+    ],
+    "pages": [
+      {
+        "id": "integrations",
+        "label": "Sources & settings",
+        "icon": "plug",
+        "group": "Manage",
+        "order": 8
+      }
+    ],
+    "required": true,
+    "pluginApi": 1,
+    "optional": [
+      "catalogs"
+    ]
+  },
+  {
+    "id": "topology",
+    "name": "Topology",
+    "description": "Physical, observed, wireless, VPN and location views of documented relationships.",
+    "version": "1.0.0",
+    "requires": [
+      "core",
+      "hardware",
+      "connections"
+    ],
+    "pages": [
+      {
+        "id": "map",
+        "label": "Topology",
+        "icon": "network",
+        "group": "Network",
+        "order": 4
+      }
+    ],
+    "pluginApi": 1,
+    "optional": [
+      "applications"
+    ],
+    "required": true
+  }
+]

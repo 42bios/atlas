@@ -1,0 +1,489 @@
+{
+  "id": "connectors",
+  "name": "Connectors & add-ins",
+  "description": "Connector contracts, snapshots, native module instances and import jobs.",
+  "version": "1.0.0",
+  "requires": [
+    "core"
+  ],
+  "optional": [
+    "settings",
+    "applications"
+  ],
+  "pages": [
+    {
+      "id": "marketplace",
+      "label": "Marketplace",
+      "icon": "grid",
+      "group": "Manage",
+      "order": 7.5
+    }
+  ],
+  "required": true,
+  "pluginApi": 1,
+  "backendRoutes": [
+    [
+      "GET",
+      "/api/v1/addins"
+    ],
+    [
+      "GET",
+      "/api/v1/connector-packages"
+    ],
+    [
+      "GET",
+      "/api/v1/connector-contract"
+    ],
+    [
+      "GET",
+      "/api/connector-schema"
+    ],
+    [
+      "GET",
+      "/api/connectors"
+    ],
+    [
+      "GET",
+      "/api/v1/connectors"
+    ],
+    [
+      "GET",
+      "/api/v1/connector-setup/package"
+    ],
+    [
+      "POST",
+      "/api/v1/addins/configure"
+    ],
+    [
+      "POST",
+      "/api/v1/addins/action"
+    ],
+    [
+      "POST",
+      "/api/v1/addins/repository/preview"
+    ],
+    [
+      "POST",
+      "/api/v1/addins/repository/install"
+    ],
+    [
+      "POST",
+      "/api/v1/connector-setup/preview"
+    ],
+    [
+      "POST",
+      "/api/v1/connector-setup/package"
+    ],
+    [
+      "POST",
+      "/api/v1/connectors/snapshot"
+    ],
+    [
+      "POST",
+      "/api/v1/connectors/status"
+    ],
+    [
+      "POST",
+      "/api/import"
+    ],
+    [
+      "POST",
+      "/api/sync"
+    ],
+    [
+      "POST",
+      "/api/v1/addins/repository/access"
+    ],
+    [
+      "GET",
+      "/api/v1/marketplace"
+    ],
+    [
+      "GET",
+      "/api/v1/icon-library"
+    ],
+    [
+      "POST",
+      "/api/v1/marketplace/source"
+    ],
+    [
+      "POST",
+      "/api/v1/marketplace/refresh"
+    ],
+    [
+      "POST",
+      "/api/v1/marketplace/preview"
+    ],
+    [
+      "POST",
+      "/api/v1/marketplace/install"
+    ],
+    [
+      "POST",
+      "/api/v1/marketplace/remove"
+    ],
+    [
+      "POST",
+      "/api/v1/marketplace/rollback"
+    ],
+    [
+      "POST",
+      "/api/v1/marketplace/details"
+    ],
+    [
+      "POST",
+      "/api/v1/addins/migration/rollback"
+    ]
+  ],
+  "assets": [
+    {
+      "path": "/modules/connectors/plugins.js",
+      "owner": "connectors",
+      "legacy": "/plugins.js",
+      "order": 14
+    },
+    {
+      "path": "/modules/connectors/addins.js",
+      "owner": "connectors",
+      "legacy": "/addins.js",
+      "order": 21
+    },
+    {
+      "path": "/modules/connectors/actions.js",
+      "owner": "connectors",
+      "legacy": null,
+      "order": 2.3
+    },
+    {
+      "path": "/modules/connectors/entry.js",
+      "owner": "connectors",
+      "order": 108,
+      "legacy": null
+    },
+    {
+      "path": "/modules/connectors/repository-addins.js",
+      "owner": "connectors",
+      "order": 22.1,
+      "legacy": null
+    },
+    {
+      "path": "/modules/connectors/marketplace.js",
+      "owner": "connectors",
+      "order": 23,
+      "legacy": null
+    }
+  ],
+  "bindings": {
+    "/modules/connectors/plugins.js": [
+      {
+        "name": "pluginPanel",
+        "writable": true
+      },
+      {
+        "name": "loadPluginStatus",
+        "writable": true
+      },
+      {
+        "name": "connectorListLoader",
+        "writable": false
+      },
+      {
+        "name": "connectorPackages",
+        "writable": true
+      },
+      {
+        "name": "connectorSetupDraft",
+        "writable": true
+      },
+      {
+        "name": "connectorSetupPreview",
+        "writable": true
+      },
+      {
+        "name": "connectorSetupStarted",
+        "writable": true
+      },
+      {
+        "name": "loadConnectorPackages",
+        "writable": true
+      },
+      {
+        "name": "setupPluginPanel",
+        "writable": false
+      },
+      {
+        "name": "setupPluginStatus",
+        "writable": false
+      },
+      {
+        "name": "connectorConfigurationFields",
+        "writable": true
+      },
+      {
+        "name": "renderConnectorConfiguration",
+        "writable": true
+      },
+      {
+        "name": "renderConnectorReview",
+        "writable": true
+      },
+      {
+        "name": "connectorSetupRequest",
+        "writable": true
+      },
+      {
+        "name": "openConnectorSetup",
+        "writable": true
+      },
+      {
+        "name": "renderConnectorVerification",
+        "writable": true
+      },
+      {
+        "name": "verifyConnectorReport",
+        "writable": true
+      }
+    ],
+    "/modules/connectors/addins.js": [
+      {
+        "name": "atlasAddins",
+        "writable": true
+      },
+      {
+        "name": "atlasConnectorReports",
+        "writable": true
+      },
+      {
+        "name": "addinPollTimer",
+        "writable": true
+      },
+      {
+        "name": "addinSchedule",
+        "writable": true
+      },
+      {
+        "name": "addinsLoadingRequest",
+        "writable": true
+      },
+      {
+        "name": "connectorFetch",
+        "writable": true
+      },
+      {
+        "name": "connectedSystemCard",
+        "writable": true
+      },
+      {
+        "name": "installedConnectorPackages",
+        "writable": true
+      },
+      {
+        "name": "loadAtlasAddins",
+        "writable": true
+      },
+      {
+        "name": "connectSystem",
+        "writable": true
+      },
+      {
+        "name": "addinRequest",
+        "writable": true
+      },
+      {
+        "name": "configureAddin",
+        "writable": true
+      },
+      {
+        "name": "confirmAddinRemoval",
+        "writable": true
+      }
+    ],
+    "/modules/connectors/actions.js": [
+      {
+        "name": "loadConnectors",
+        "writable": true
+      }
+    ],
+    "/modules/connectors/entry.js": [],
+    "/modules/connectors/repository-addins.js": [
+      {
+        "name": "repositoryPackageDetails",
+        "writable": true
+      },
+      {
+        "name": "repositoryConfiguration",
+        "writable": true
+      },
+      {
+        "name": "addRepository",
+        "writable": true
+      },
+      {
+        "name": "reviewRepository",
+        "writable": true
+      },
+      {
+        "name": "bundledConfigureAddin",
+        "writable": false
+      },
+      {
+        "name": "configureGitHubAccess",
+        "writable": true
+      }
+    ],
+    "/modules/connectors/marketplace.js": [
+      {
+        "name": "marketplaceData",
+        "writable": true
+      },
+      {
+        "name": "marketplaceTab",
+        "writable": true
+      },
+      {
+        "name": "marketplaceType",
+        "writable": true
+      },
+      {
+        "name": "marketplaceQuery",
+        "writable": true
+      },
+      {
+        "name": "marketplaceLoading",
+        "writable": true
+      },
+      {
+        "name": "marketplaceBusy",
+        "writable": true
+      },
+      {
+        "name": "marketplaceGrouping",
+        "writable": true
+      },
+      {
+        "name": "marketplaceSort",
+        "writable": true
+      },
+      {
+        "name": "marketplaceStatus",
+        "writable": true
+      },
+      {
+        "name": "marketplaceFilters",
+        "writable": true
+      },
+      {
+        "name": "marketplaceSelectedKey",
+        "writable": true
+      },
+      {
+        "name": "marketplaceCollapsed",
+        "writable": false
+      },
+      {
+        "name": "marketplaceDocuments",
+        "writable": false
+      },
+      {
+        "name": "marketplaceTypes",
+        "writable": false
+      },
+      {
+        "name": "marketplaceLogo",
+        "writable": true
+      },
+      {
+        "name": "renderMarketplace",
+        "writable": true
+      },
+      {
+        "name": "marketplaceContent",
+        "writable": true
+      },
+      {
+        "name": "marketplacePackageStatus",
+        "writable": true
+      },
+      {
+        "name": "marketplaceRows",
+        "writable": true
+      },
+      {
+        "name": "marketplaceActivity",
+        "writable": true
+      },
+      {
+        "name": "marketplaceRow",
+        "writable": true
+      },
+      {
+        "name": "marketplaceSources",
+        "writable": true
+      },
+      {
+        "name": "paintMarketplace",
+        "writable": true
+      },
+      {
+        "name": "loadMarketplace",
+        "writable": true
+      },
+      {
+        "name": "marketplaceRequest",
+        "writable": true
+      },
+      {
+        "name": "refreshMarketplace",
+        "writable": true
+      },
+      {
+        "name": "marketplaceSourceDialog",
+        "writable": true
+      },
+      {
+        "name": "marketplaceDetails",
+        "writable": true
+      },
+      {
+        "name": "marketplaceBack",
+        "writable": true
+      },
+      {
+        "name": "marketplaceDetailContent",
+        "writable": true
+      },
+      {
+        "name": "marketplaceDocumentKey",
+        "writable": true
+      },
+      {
+        "name": "marketplaceLoadDocument",
+        "writable": true
+      },
+      {
+        "name": "marketplaceSafeUrl",
+        "writable": true
+      },
+      {
+        "name": "marketplaceInline",
+        "writable": true
+      },
+      {
+        "name": "marketplaceMarkdown",
+        "writable": true
+      },
+      {
+        "name": "marketplaceReview",
+        "writable": true
+      },
+      {
+        "name": "marketplaceConfigure",
+        "writable": true
+      },
+      {
+        "name": "marketplaceConnectorProgress",
+        "writable": true
+      }
+    ]
+  }
+}

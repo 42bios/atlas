@@ -1,0 +1,596 @@
+{
+  "id": "hardware",
+  "name": "Hardware & racks",
+  "description": "Devices, interfaces, rack placement, shelves, power equipment and front/rear artwork.",
+  "version": "1.0.0",
+  "requires": [
+    "core"
+  ],
+  "pages": [
+    {
+      "id": "racks",
+      "label": "Racks",
+      "icon": "rack",
+      "group": "Inventory",
+      "order": 1
+    },
+    {
+      "id": "devices",
+      "label": "Devices",
+      "icon": "server",
+      "group": "Inventory",
+      "order": 2
+    }
+  ],
+  "pluginApi": 1,
+  "optional": [
+    "connections",
+    "applications"
+  ],
+  "backendRoutes": [
+    [
+      "POST",
+      "/api/stencils/import-vssx"
+    ],
+    [
+      "GET",
+      "/api/v1/hardware"
+    ]
+  ],
+  "assets": [
+    {
+      "path": "/modules/hardware/stencils.js",
+      "owner": "hardware",
+      "legacy": "/stencils.js",
+      "order": 3
+    },
+    {
+      "path": "/modules/hardware/racks.js",
+      "owner": "hardware",
+      "legacy": "/racks.js",
+      "order": 4
+    },
+    {
+      "path": "/modules/hardware/accessories.js",
+      "owner": "hardware",
+      "legacy": "/accessories.js",
+      "order": 6
+    },
+    {
+      "path": "/modules/hardware/shelf-layout.js",
+      "owner": "hardware",
+      "legacy": "/shelf-layout.js",
+      "order": 7
+    },
+    {
+      "path": "/modules/hardware/rack-placement.js",
+      "owner": "hardware",
+      "legacy": "/rack-placement.js",
+      "order": 8
+    },
+    {
+      "path": "/modules/hardware/inventory.js",
+      "owner": "hardware",
+      "legacy": "/inventory.js",
+      "order": 9
+    },
+    {
+      "path": "/modules/hardware/views.js",
+      "owner": "hardware",
+      "legacy": null,
+      "order": 1.1
+    },
+    {
+      "path": "/modules/hardware/actions.js",
+      "owner": "hardware",
+      "legacy": null,
+      "order": 2.05
+    },
+    {
+      "path": "/modules/hardware/entry.js",
+      "owner": "hardware",
+      "order": 102,
+      "legacy": null
+    },
+    {
+      "path": "/modules/hardware/workflows.js",
+      "owner": "hardware",
+      "legacy": null,
+      "order": 11.1
+    },
+    {
+      "path": "/modules/hardware/model-picker.js",
+      "owner": "hardware",
+      "order": 5.1
+    },
+    {
+      "path": "/modules/hardware/category-editor.js",
+      "owner": "hardware",
+      "order": 9.1
+    },
+    {
+      "path": "/modules/hardware/interface-facts.js",
+      "owner": "hardware",
+      "order": 9.2
+    },
+    {
+      "path": "/modules/hardware/details.js",
+      "owner": "hardware",
+      "order": 20.1
+    }
+  ],
+  "bindings": {
+    "/modules/hardware/stencils.js": [
+      {
+        "name": "stencilLibrary",
+        "writable": true
+      },
+      {
+        "name": "stencilUsage",
+        "writable": true
+      },
+      {
+        "name": "stencilPage",
+        "writable": true
+      },
+      {
+        "name": "stencilLastQuery",
+        "writable": true
+      },
+      {
+        "name": "stencilLibraryName",
+        "writable": false
+      },
+      {
+        "name": "stencilLibraries",
+        "writable": false
+      },
+      {
+        "name": "stencilMatches",
+        "writable": false
+      },
+      {
+        "name": "stencilArtwork",
+        "writable": false
+      },
+      {
+        "name": "libraryOptions",
+        "writable": true
+      },
+      {
+        "name": "renderStencils",
+        "writable": true
+      },
+      {
+        "name": "previewStencil",
+        "writable": true
+      },
+      {
+        "name": "stencilPicker",
+        "writable": true
+      },
+      {
+        "name": "pickerSelection",
+        "writable": true
+      },
+      {
+        "name": "artworkSelections",
+        "writable": true
+      },
+      {
+        "name": "refreshArtworkSelection",
+        "writable": true
+      },
+      {
+        "name": "chooseDeviceArtwork",
+        "writable": true
+      },
+      {
+        "name": "pickerResults",
+        "writable": true
+      },
+      {
+        "name": "refreshPicker",
+        "writable": true
+      }
+    ],
+    "/modules/hardware/racks.js": [
+      {
+        "name": "rackViews",
+        "writable": false
+      },
+      {
+        "name": "rackPreferences",
+        "writable": true
+      },
+      {
+        "name": "saveRackPreferences",
+        "writable": true
+      },
+      {
+        "name": "rackArtwork",
+        "writable": true
+      },
+      {
+        "name": "rawRackArtwork",
+        "writable": true
+      },
+      {
+        "name": "renderRacks",
+        "writable": true
+      },
+      {
+        "name": "rackCanMove",
+        "writable": true
+      },
+      {
+        "name": "restoreRackScroll",
+        "writable": true
+      },
+      {
+        "name": "rackElevation",
+        "writable": true
+      },
+      {
+        "name": "pduVisible",
+        "writable": true
+      }
+    ],
+    "/modules/hardware/accessories.js": [
+      {
+        "name": "accessoryFace",
+        "writable": true
+      },
+      {
+        "name": "shelfEquipment",
+        "writable": true
+      },
+      {
+        "name": "shelfFields",
+        "writable": true
+      },
+      {
+        "name": "updateShelfFields",
+        "writable": true
+      }
+    ],
+    "/modules/hardware/shelf-layout.js": [
+      {
+        "name": "dimensionKeys",
+        "writable": false
+      },
+      {
+        "name": "modelDimensions",
+        "writable": true
+      },
+      {
+        "name": "dimensionFields",
+        "writable": true
+      },
+      {
+        "name": "dimensionSummary",
+        "writable": true
+      },
+      {
+        "name": "shelfRectangles",
+        "writable": true
+      },
+      {
+        "name": "shelfLayoutError",
+        "writable": true
+      },
+      {
+        "name": "shelfDraft",
+        "writable": true
+      },
+      {
+        "name": "arrangeShelf",
+        "writable": true
+      },
+      {
+        "name": "drawShelfPlan",
+        "writable": true
+      },
+      {
+        "name": "moveShelfItem",
+        "writable": true
+      }
+    ],
+    "/modules/hardware/rack-placement.js": [
+      {
+        "name": "editingRackDevice",
+        "writable": true
+      },
+      {
+        "name": "rackDrag",
+        "writable": true
+      },
+      {
+        "name": "rackPointerGrab",
+        "writable": true
+      },
+      {
+        "name": "rackOccupied",
+        "writable": true
+      },
+      {
+        "name": "rackPlacementFits",
+        "writable": true
+      },
+      {
+        "name": "rackFreePositions",
+        "writable": true
+      },
+      {
+        "name": "rackFreeRuns",
+        "writable": true
+      },
+      {
+        "name": "rackSuggestedPosition",
+        "writable": true
+      },
+      {
+        "name": "rackPositionLabel",
+        "writable": true
+      },
+      {
+        "name": "updateRackPositionOptions",
+        "writable": true
+      },
+      {
+        "name": "rackSlotMarkup",
+        "writable": true
+      },
+      {
+        "name": "rackStartRow",
+        "writable": true
+      },
+      {
+        "name": "rackUnitAtRow",
+        "writable": true
+      },
+      {
+        "name": "snappedRackPlacement",
+        "writable": true
+      },
+      {
+        "name": "clearRackDrag",
+        "writable": true
+      },
+      {
+        "name": "rackDropPreview",
+        "writable": true
+      },
+      {
+        "name": "rackClickSuppressedUntil",
+        "writable": true
+      },
+      {
+        "name": "pointerRackPreview",
+        "writable": true
+      },
+      {
+        "name": "commitPointerRackDrop",
+        "writable": true
+      }
+    ],
+    "/modules/hardware/inventory.js": [
+      {
+        "name": "activeDeviceModel",
+        "writable": true
+      },
+      {
+        "name": "interfaceDraft",
+        "writable": true
+      },
+      {
+        "name": "deviceCategory",
+        "writable": true
+      },
+      {
+        "name": "newHardwareCategory",
+        "writable": true
+      },
+      {
+        "name": "categoryObjects",
+        "writable": true
+      },
+      {
+        "name": "deviceCategoryTabs",
+        "writable": true
+      },
+      {
+        "name": "deviceFilter",
+        "writable": true
+      },
+      {
+        "name": "hardwareKeys",
+        "writable": false
+      },
+      {
+        "name": "lockHardwareFields",
+        "writable": true
+      },
+      {
+        "name": "interfaceEditor",
+        "writable": true
+      },
+      {
+        "name": "interfaceEditorContent",
+        "writable": true
+      },
+      {
+        "name": "readInterfaceDraft",
+        "writable": true
+      },
+      {
+        "name": "deviceMatches",
+        "writable": true
+      },
+      {
+        "name": "deviceFilters",
+        "writable": true
+      },
+      {
+        "name": "deviceDetailPhoto",
+        "writable": true
+      },
+      {
+        "name": "inventoryDetails",
+        "writable": true
+      },
+      {
+        "name": "interfaceDetails",
+        "writable": true
+      }
+    ],
+    "/modules/hardware/views.js": [
+      {
+        "name": "renderDevices",
+        "writable": true
+      }
+    ],
+    "/modules/hardware/actions.js": [
+      {
+        "name": "editRack",
+        "writable": true
+      },
+      {
+        "name": "editDevice",
+        "writable": true
+      },
+      {
+        "name": "uploadStencil",
+        "writable": true
+      },
+      {
+        "name": "deviceHeightField",
+        "writable": true
+      },
+      {
+        "name": "dragged",
+        "writable": true
+      },
+      {
+        "name": "selectedStencilId",
+        "writable": true
+      },
+      {
+        "name": "selectedRearStencilId",
+        "writable": true
+      },
+      {
+        "name": "artworkFace",
+        "writable": true
+      },
+      {
+        "name": "artworkImages",
+        "writable": true
+      },
+      {
+        "name": "catalogArtwork",
+        "writable": true
+      }
+    ],
+    "/modules/hardware/entry.js": [],
+    "/modules/hardware/workflows.js": [
+      {
+        "name": "deviceImageEditor",
+        "writable": true
+      },
+      {
+        "name": "organizeDeviceEditor",
+        "writable": true
+      }
+    ],
+    "/modules/hardware/model-picker.js": [
+      {
+        "name": "builtinDeviceTemplates",
+        "writable": false
+      },
+      {
+        "name": "catalogPicker",
+        "writable": true
+      },
+      {
+        "name": "catalogOptions",
+        "writable": true
+      },
+      {
+        "name": "applyCatalogModel",
+        "writable": true
+      },
+      {
+        "name": "modelSelectionPreview",
+        "writable": true
+      }
+    ],
+    "/modules/hardware/category-editor.js": [
+      {
+        "name": "updateHardwareCategoryForm",
+        "writable": true
+      }
+    ],
+    "/modules/hardware/interface-facts.js": [
+      {
+        "name": "interfaceConnectors",
+        "writable": false
+      },
+      {
+        "name": "interfacePortStats",
+        "writable": true
+      },
+      {
+        "name": "baseInventoryDetails",
+        "writable": false
+      },
+      {
+        "name": "discoveryCoverage",
+        "writable": true
+      },
+      {
+        "name": "inventoryDetailsWithCoverage",
+        "writable": false
+      }
+    ],
+    "/modules/hardware/details.js": [
+      {
+        "name": "validDeviceImageFrame",
+        "writable": true
+      },
+      {
+        "name": "deviceImageFrame",
+        "writable": true
+      },
+      {
+        "name": "deviceImageMarkup",
+        "writable": true
+      },
+      {
+        "name": "deviceFace",
+        "writable": true
+      },
+      {
+        "name": "inspector",
+        "writable": true
+      },
+      {
+        "name": "navigationInspector",
+        "writable": false
+      },
+      {
+        "name": "inspectorSection",
+        "writable": true
+      },
+      {
+        "name": "inspectorObject",
+        "writable": true
+      },
+      {
+        "name": "organizeInspector",
+        "writable": true
+      }
+    ]
+  },
+  "required": true
+}

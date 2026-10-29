@@ -1,0 +1,30 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+let markup='',title='',form={textContent:''};
+const ctx=vm.createContext({URL,URLSearchParams,Date,document:{addEventListener(){}},icon:()=>'<svg></svg>',header:()=>'',esc:x=>String(x??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'),pill:x=>x,field:()=>'',modal:(t,h)=>{title=t;markup=h},$:()=>form});
+vm.runInContext(fs.readFileSync('static/modules/connectors/marketplace.js','utf8'),ctx);
+ctx.fixture={packages:[{key:'s/icons',id:'icons',type:'icon-pack',name:'Icons',description:'Data only',repository:'https://github.com/example/icons',repositoryName:'example/icons',ref:'a'.repeat(40),version:'1.0.0',license:'MIT',sourceName:'Community',documentation:'README.md',permissions:['Static images'],installed:true,managed:true,rollback:true},{key:'s/connector',id:'connector',type:'connector',name:'Test connector',description:'Collect inventory',repository:'https://github.com/example/connector',repositoryName:'example/connector',ref:'b'.repeat(40),version:'1.1.0',license:'MIT',sourceName:'Community',documentation:'README.md',permissions:['Upstream access'],installed:true,updateAvailable:true}],sources:[{id:'s',name:'Community',enabled:true,repository:'https://github.com/example/catalog',ref:'main',count:2}]};
+vm.runInContext('marketplaceData=fixture',ctx);
+assert.match(vm.runInContext('renderMarketplace()',ctx),/All extensions/);assert.match(vm.runInContext('marketplaceContent()',ctx),/Icon pack/);
+vm.runInContext("marketplaceType='icon-pack'",ctx);assert.doesNotMatch(vm.runInContext('marketplaceContent()',ctx),/Test connector/);
+vm.runInContext("marketplaceTab='sources'",ctx);assert.match(vm.runInContext('marketplaceContent()',ctx),/never installs or runs/);
+markup=vm.runInContext("marketplaceDetailContent('s/icons')",ctx);assert.match(markup,/Data only/);assert.match(markup,/Uninstall/);assert.match(markup,/Roll back/);
+markup=vm.runInContext("marketplaceDetailContent('s/connector')",ctx);assert.match(markup,/Declared access changed/);assert.match(markup,/isolated worker/);
+const icons=vm.createContext({document:{addEventListener(){}},icon:()=>'<svg></svg>',kindIcon:()=> 'box',esc:x=>x,selectField:()=>''});vm.runInContext(fs.readFileSync('static/core/icon-library.js','utf8'),icons);
+vm.runInContext("installedIconLibrary=[{id:'pack:db',name:'Database',image:'data:image/png;base64,AA',match:['postgres'],pack:'Pack'}]",icons);
+assert.match(vm.runInContext("applicationIconMarkup({name:'postgres-main',kind:'Container'})",icons),/<img/);
+assert.match(vm.runInContext("applicationIconMarkup({name:'postgres-main',applicationIcon:'none'})",icons),/<svg/);
+assert.match(vm.runInContext("applicationIconMarkup({name:'postgres-main',applicationIcon:'missing'})",icons),/<svg/);
+assert.match(vm.runInContext("applicationIconMarkup({name:'App',applicationIcon:'pack:db'})",icons),/<img/);
+console.log('Marketplace browse/filter/source/details and application icon matching verified.');
+
+vm.runInContext("marketplaceTab='browse';marketplaceType='';marketplaceGrouping='status'",ctx);
+let list=vm.runInContext('marketplaceContent()',ctx);assert.match(list,/Updates available/);assert.match(list,/market-repository-row/);assert.match(list,/Group by status/);assert.doesNotMatch(list,/market-grid/);
+vm.runInContext("marketplaceStatus='updates'",ctx);assert.equal(vm.runInContext('marketplaceRows().length',ctx),1);
+vm.runInContext("marketplaceStatus='';marketplaceSort='stars';marketplaceData.packages[0].github={stars:20,activity:'2026-10-01T00:00:00Z'};marketplaceData.packages[1].github={stars:3,activity:'2026-10-20T00:00:00Z'}",ctx);assert.equal(vm.runInContext('marketplaceRows()[0].id',ctx),'icons');
+vm.runInContext("marketplaceSort='activity'",ctx);assert.equal(vm.runInContext('marketplaceRows()[0].id',ctx),'connector');
+ctx.markdown='# Heading\n\n<script>alert(1)</script>\n\n[unsafe](javascript:alert)\n[docs](README.md)\n\n- **Bold** and `code`';
+const rendered=vm.runInContext('marketplaceMarkdown(markdown,fixture.packages[0])',ctx);assert.doesNotMatch(rendered,/<script|href="javascript:/);assert.match(rendered,/&lt;script/);assert.match(rendered,/<strong>Bold<\/strong>/);assert.match(rendered,/https:\/\/github.com\/example\/icons\/blob/);
+console.log('HACS-style grouping, sorting and safe repository Markdown verified.');
+ctx.table='| Name | Type |\n| --- | --- |\n| **Test** | Icon |';assert.match(vm.runInContext('marketplaceMarkdown(table,fixture.packages[0])',ctx),/<table>/);
+
+vm.runInContext("marketplaceData.packages[1].migration=[{id:'instance',name:'Old instance',source:'existing-source'}]",ctx);assert.match(vm.runInContext("marketplaceDetailContent('s/connector')",ctx),/Migrate existing connector/);

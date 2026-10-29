@@ -1,0 +1,68 @@
+{
+  "id": "overview",
+  "name": "Overview",
+  "description": "Inventory summaries and workspace entry points.",
+  "version": "1.0.0",
+  "requires": [
+    "core"
+  ],
+  "pages": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "grid",
+      "group": "Inventory",
+      "order": 0
+    }
+  ],
+  "required": true,
+  "pluginApi": 1,
+  "backendRoutes": [
+    [
+      "GET",
+      "/api/v1/overview"
+    ]
+  ],
+  "assets": [
+    {
+      "path": "/modules/overview/views.js",
+      "owner": "overview",
+      "legacy": null,
+      "order": 1.05
+    },
+    {
+      "path": "/modules/overview/entry.js",
+      "owner": "overview",
+      "order": 101,
+      "legacy": null
+    }
+  ],
+  "bindings": {
+    "/modules/overview/views.js": [
+      {
+        "name": "renderOverview",
+        "writable": true
+      },
+      {
+        "name": "overviewConnectorPackages",
+        "writable": true
+      },
+      {
+        "name": "overviewNextSteps",
+        "writable": true
+      },
+      {
+        "name": "loadOverviewNextSteps",
+        "writable": true
+      }
+    ],
+    "/modules/overview/entry.js": []
+  },
+  "optional": [
+    "hardware",
+    "applications",
+    "ipam",
+    "connections",
+    "connectors"
+  ]
+}

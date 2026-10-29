@@ -1,0 +1,12 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const elements={};
+const ctx=vm.createContext({document:{addEventListener(){}},loadConnectors(){},$:selector=>elements[selector]||(elements[selector]={innerHTML:''}),objects:()=>[],esc:s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;'),console});
+vm.runInContext(require('./assets.cjs').source('plugins'),ctx);
+vm.runInContext(`connectorSetupDraft={plugin:'portainer',connector:'portainer-test',atlasUrl:'http://192.0.2.1:8097',upstreamUrl:'https://example.test:9443'};connectorSetupPreview={...connectorSetupDraft,environment:'CONNECTOR_ID=portainer-test',requirements:[],commands:[],files:{}};renderConnectorReview()`,ctx);
+const footer=elements['#edit-form .modal-footer'].innerHTML;
+const href=footer.match(/href="([^"]+)"/)[1];
+assert.ok(!href.includes('${'),'Download link must contain evaluated configuration, never literal template expressions');
+const config=new URL(href,'http://atlas.test').searchParams.get('configuration');
+assert.deepEqual(JSON.parse(config),{plugin:'portainer',connector:'portainer-test',atlasUrl:'http://192.0.2.1:8097',upstreamUrl:'https://example.test:9443'});
+assert.ok(footer.includes('download="portainer-test.zip"'));
+console.log('Connector setup UI checks passed: native download URL encodes the reviewed configuration and filename.');

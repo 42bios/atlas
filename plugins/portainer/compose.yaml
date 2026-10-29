@@ -1,0 +1,19 @@
+services:
+  portainer-connector:
+    build: .
+    environment:
+      ATLAS_URL: ${ATLAS_URL:?Set ATLAS_URL to your Atlas instance URL}
+      CONNECTOR_ID: ${CONNECTOR_ID:-portainer-main}
+      PORTAINER_URL: ${PORTAINER_URL:-}
+      PORTAINER_TLS_SHA256: ${PORTAINER_TLS_SHA256:-}
+      ATLAS_TOKEN_FILE: /run/secrets/atlas_token
+      PORTAINER_TOKEN_FILE: /run/secrets/portainer_token
+      SYNC_INTERVAL: ${SYNC_INTERVAL:-900}
+    volumes:
+      - ./secrets/atlas_token:/run/secrets/atlas_token:ro
+      - ./secrets/portainer_token:/run/secrets/portainer_token:ro
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    tmpfs: [/tmp]
+    restart: unless-stopped

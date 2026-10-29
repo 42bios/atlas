@@ -1,0 +1,16 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const ctx=vm.createContext({});vm.runInContext(require('./assets.cjs').source('module-registry'),ctx);
+vm.runInContext(`let events=[];for(const m of AtlasModules.manifest().modules)AtlasModules.register(m.id,{views:Object.fromEntries(m.pages.map(p=>[p.id,()=>p.id])),afterRender:page=>events.push('enter:'+page),leave:page=>events.push('leave:'+page)});AtlasModules.verify();`,ctx);
+assert.equal(vm.runInContext('AtlasModules.pages().length',ctx),10);
+assert.equal(vm.runInContext("AtlasModules.render('racks')",ctx),'racks');
+vm.runInContext("AtlasModules.afterRender('integrations');AtlasModules.afterRender('devices')",ctx);
+assert.equal(vm.runInContext("events.join(',')",ctx),'enter:integrations,leave:integrations,enter:devices');
+assert.throws(()=>vm.runInContext("AtlasModules.register('unknown',{})",ctx),/Unknown module/);
+assert.throws(()=>vm.runInContext("AtlasModules.register('hardware',{})",ctx),/already registered/);
+assert.throws(()=>vm.runInContext("AtlasModules.render('unknown')",ctx),/unavailable/);
+console.log('Module composition checks passed: page ownership, lifecycle cleanup, duplicate and unknown registration.');
+vm.runInContext("AtlasModules.configure({...AtlasModules.manifest(),modules:AtlasModules.manifest().modules.map(m=>({...m,enabled:m.id!=='ipam'}))})",ctx);
+assert.equal(vm.runInContext("AtlasModules.available('ips')",ctx),false);
+assert.equal(vm.runInContext('AtlasModules.pages().length',ctx),9);
+assert.throws(()=>vm.runInContext("AtlasModules.render('ips')",ctx),/unavailable/);
+vm.runInContext('AtlasModules.verify()',ctx);

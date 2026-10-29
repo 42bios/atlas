@@ -1,0 +1,93 @@
+{
+  "id": "settings",
+  "name": "Sources & settings",
+  "description": "Workspace configuration, module information, sources and backup/restore.",
+  "version": "1.0.0",
+  "requires": [
+    "core",
+    "connectors"
+  ],
+  "pages": [
+    {
+      "id": "integrations",
+      "label": "Sources & settings",
+      "icon": "plug",
+      "group": "Manage",
+      "order": 8
+    }
+  ],
+  "required": true,
+  "pluginApi": 1,
+  "optional": [
+    "catalogs"
+  ],
+  "backendRoutes": [
+    [
+      "GET",
+      "/api/state"
+    ],
+    [
+      "GET",
+      "/api/v1/inventory"
+    ],
+    [
+      "PUT",
+      "/api/state"
+    ],
+    [
+      "GET",
+      "/api/v1/backups"
+    ],
+    [
+      "POST",
+      "/api/v1/backups"
+    ]
+  ],
+  "assets": [
+    {
+      "path": "/modules/settings/views.js",
+      "owner": "settings",
+      "legacy": null,
+      "order": 1.35
+    },
+    {
+      "path": "/modules/settings/actions.js",
+      "owner": "settings",
+      "legacy": null,
+      "order": 2.25
+    },
+    {
+      "path": "/modules/settings/entry.js",
+      "owner": "settings",
+      "order": 109,
+      "legacy": null
+    }
+  ],
+  "bindings": {
+    "/modules/settings/views.js": [
+      {
+        "name": "settingsSection",
+        "writable": true
+      },
+      {
+        "name": "renderIntegrations",
+        "writable": true
+      },
+      {
+        "name": "hostBackupRequest",
+        "writable": true
+      },
+      {
+        "name": "backupResult",
+        "writable": true
+      }
+    ],
+    "/modules/settings/actions.js": [
+      {
+        "name": "importFile",
+        "writable": true
+      }
+    ],
+    "/modules/settings/entry.js": []
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "portainer",
+  "name": "Portainer inventory connector",
+  "version": "1.0.0",
+  "contractVersion": 1,
+  "runtime": "external-container",
+  "capabilities": ["Docker environments", "Stacks", "Containers", "Startup dependencies"],
+  "configuration": ["ATLAS_URL", "CONNECTOR_ID", "ATLAS_TOKEN_FILE", "PORTAINER_URL", "PORTAINER_TOKEN_FILE"],
+  "documentation": "../../docs/connector-plugins.md"
+}

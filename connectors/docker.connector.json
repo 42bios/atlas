@@ -1,0 +1,6 @@
+{
+  "id": "docker-host",
+  "name": "Docker host inventory",
+  "description": "Containers, Compose projects, published ports and declared startup dependencies. Read-only snapshots.",
+  "snapshot": "docker.snapshot.json"
+}

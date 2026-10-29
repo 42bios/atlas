@@ -1,0 +1,156 @@
+{
+  "id": "topology",
+  "name": "Topology",
+  "description": "Physical, observed, wireless, VPN and location views of documented relationships.",
+  "version": "1.0.0",
+  "requires": [
+    "core",
+    "hardware",
+    "connections"
+  ],
+  "pages": [
+    {
+      "id": "map",
+      "label": "Topology",
+      "icon": "network",
+      "group": "Network",
+      "order": 4
+    }
+  ],
+  "pluginApi": 1,
+  "backendRoutes": [
+    [
+      "GET",
+      "/api/v1/topology"
+    ]
+  ],
+  "assets": [
+    {
+      "path": "/modules/topology/topology-map.js",
+      "owner": "topology",
+      "legacy": "/topology-map.js",
+      "order": 15
+    },
+    {
+      "path": "/modules/topology/views.js",
+      "owner": "topology",
+      "legacy": null,
+      "order": 1.25
+    },
+    {
+      "path": "/modules/topology/entry.js",
+      "owner": "topology",
+      "order": 106,
+      "legacy": null
+    },
+    {
+      "path": "/modules/topology/locations.js",
+      "owner": "topology",
+      "order": 14.9
+    },
+    {
+      "path": "/modules/topology/observed.js",
+      "owner": "topology",
+      "order": 17.1
+    }
+  ],
+  "bindings": {
+    "/modules/topology/topology-map.js": [
+      {
+        "name": "topologyQuery",
+        "writable": true
+      },
+      {
+        "name": "topologyRack",
+        "writable": true
+      },
+      {
+        "name": "topologyLocation",
+        "writable": true
+      },
+      {
+        "name": "topologyUnconnected",
+        "writable": true
+      },
+      {
+        "name": "topologyFocusOnly",
+        "writable": true
+      },
+      {
+        "name": "topologyZoom",
+        "writable": true
+      },
+      {
+        "name": "topologyLabels",
+        "writable": true
+      },
+      {
+        "name": "topologyStyles",
+        "writable": false
+      },
+      {
+        "name": "topologyGraph",
+        "writable": true
+      },
+      {
+        "name": "topologyLayout",
+        "writable": true
+      },
+      {
+        "name": "topologyControls",
+        "writable": true
+      },
+      {
+        "name": "topologyPaths",
+        "writable": true
+      },
+      {
+        "name": "topologyDiagram",
+        "writable": true
+      },
+      {
+        "name": "renderMap",
+        "writable": true
+      }
+    ],
+    "/modules/topology/views.js": [
+      {
+        "name": "renderMapLegacy",
+        "writable": true
+      }
+    ],
+    "/modules/topology/entry.js": [],
+    "/modules/topology/locations.js": [
+      {
+        "name": "topologyMode",
+        "writable": true
+      },
+      {
+        "name": "geoRacks",
+        "writable": true
+      },
+      {
+        "name": "renderLocations",
+        "writable": true
+      }
+    ],
+    "/modules/topology/observed.js": [
+      {
+        "name": "observedTopology",
+        "writable": true
+      },
+      {
+        "name": "documentedTopologyGraph",
+        "writable": false
+      },
+      {
+        "name": "renderObservedTopology",
+        "writable": true
+      }
+    ]
+  },
+  "optional": [
+    "applications"
+  ],
+  "required": true
+}

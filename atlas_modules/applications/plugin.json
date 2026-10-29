@@ -1,0 +1,245 @@
+{
+  "id": "applications",
+  "name": "Applications",
+  "description": "VMs, containers, stacks, hosting and application dependency maps.",
+  "version": "1.0.0",
+  "requires": [
+    "core",
+    "hardware"
+  ],
+  "pages": [
+    {
+      "id": "services",
+      "label": "Applications",
+      "icon": "box",
+      "group": "Inventory",
+      "order": 3
+    }
+  ],
+  "pluginApi": 1,
+  "backendRoutes": [
+    [
+      "GET",
+      "/api/v1/applications"
+    ]
+  ],
+  "assets": [
+    {
+      "path": "/modules/applications/dependency-map.js",
+      "owner": "applications",
+      "legacy": "/dependency-map.js",
+      "order": 13
+    },
+    {
+      "path": "/modules/applications/views.js",
+      "owner": "applications",
+      "legacy": null,
+      "order": 1.2
+    },
+    {
+      "path": "/modules/applications/actions.js",
+      "owner": "applications",
+      "legacy": null,
+      "order": 2.1
+    },
+    {
+      "path": "/modules/applications/entry.js",
+      "owner": "applications",
+      "order": 103,
+      "legacy": null
+    },
+    {
+      "path": "/modules/applications/workflows.js",
+      "owner": "applications",
+      "legacy": null,
+      "order": 11.15
+    },
+    {
+      "path": "/modules/applications/editor-flows.js",
+      "owner": "applications",
+      "order": 16.1
+    }
+  ],
+  "bindings": {
+    "/modules/applications/dependency-map.js": [
+      {
+        "name": "dependencyZoom",
+        "writable": true
+      },
+      {
+        "name": "dependencyHosting",
+        "writable": true
+      },
+      {
+        "name": "dependencyFilter",
+        "writable": true
+      },
+      {
+        "name": "dependencyDepth",
+        "writable": true
+      },
+      {
+        "name": "dependencyLabels",
+        "writable": true
+      },
+      {
+        "name": "applicationMapQuery",
+        "writable": true
+      },
+      {
+        "name": "applicationRole",
+        "writable": true
+      },
+      {
+        "name": "applicationMapPage",
+        "writable": true
+      },
+      {
+        "name": "applicationIncludeMissing",
+        "writable": true
+      },
+      {
+        "name": "relationshipStyle",
+        "writable": false
+      },
+      {
+        "name": "dependencyMatches",
+        "writable": true
+      },
+      {
+        "name": "applicationActive",
+        "writable": true
+      },
+      {
+        "name": "applicationGraph",
+        "writable": true
+      },
+      {
+        "name": "dependencyRanks",
+        "writable": true
+      },
+      {
+        "name": "dependencyLayout",
+        "writable": true
+      },
+      {
+        "name": "dependencyEdges",
+        "writable": true
+      },
+      {
+        "name": "applicationOverviewGroups",
+        "writable": true
+      },
+      {
+        "name": "applicationOverview",
+        "writable": true
+      },
+      {
+        "name": "applicationUsesOverview",
+        "writable": true
+      },
+      {
+        "name": "applicationMap",
+        "writable": true
+      },
+      {
+        "name": "fitDependencyMap",
+        "writable": true
+      }
+    ],
+    "/modules/applications/views.js": [
+      {
+        "name": "renderServiceCards",
+        "writable": true
+      },
+      {
+        "name": "hostedApplications",
+        "writable": true
+      },
+      {
+        "name": "applicationScopeQuery",
+        "writable": true
+      },
+      {
+        "name": "recentApplicationScopes",
+        "writable": true
+      },
+      {
+        "name": "applicationScopeOptions",
+        "writable": true
+      },
+      {
+        "name": "hostNavigation",
+        "writable": true
+      },
+      {
+        "name": "openHostApplications",
+        "writable": true
+      }
+    ],
+    "/modules/applications/actions.js": [
+      {
+        "name": "editService",
+        "writable": true
+      }
+    ],
+    "/modules/applications/entry.js": [],
+    "/modules/applications/workflows.js": [
+      {
+        "name": "applicationPresentation",
+        "writable": true
+      },
+      {
+        "name": "renderServices",
+        "writable": true
+      }
+    ],
+    "/modules/applications/editor-flows.js": [
+      {
+        "name": "applicationOtherHosts",
+        "writable": true
+      },
+      {
+        "name": "applicationHostChoices",
+        "writable": true
+      },
+      {
+        "name": "updateApplicationFields",
+        "writable": true
+      },
+      {
+        "name": "applicationListType",
+        "writable": true
+      },
+      {
+        "name": "applicationListRole",
+        "writable": true
+      },
+      {
+        "name": "applicationListMissing",
+        "writable": true
+      },
+      {
+        "name": "applicationListPage",
+        "writable": true
+      },
+      {
+        "name": "filteredApplicationList",
+        "writable": true
+      },
+      {
+        "name": "applicationListFilters",
+        "writable": true
+      },
+      {
+        "name": "applicationImageLabel",
+        "writable": true
+      },
+      {
+        "name": "runtimeKinds",
+        "writable": false
+      }
+    ]
+  },
+  "required": true
+}

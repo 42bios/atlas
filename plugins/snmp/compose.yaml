@@ -1,0 +1,19 @@
+services:
+  snmp-discovery:
+    build:
+      context: ../..
+      dockerfile: plugins/snmp/Dockerfile
+    environment:
+      ATLAS_URL: ${ATLAS_URL:?Set ATLAS_URL to your Atlas instance URL}
+      CONNECTOR_ID: ${CONNECTOR_ID:-snmp-main}
+      ATLAS_TOKEN_FILE: /run/secrets/atlas_token
+      DISCOVERY_CONFIG_FILE: /run/secrets/discovery_config
+      SNMP_COMMUNITY_FILE: /run/secrets/snmp_community
+      SNMP_CREDENTIALS_FILE: /run/secrets/snmp_credentials
+      RUN_ONCE: ${RUN_ONCE:-true}
+    volumes:
+      - ./secrets:/run/secrets:ro
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    tmpfs: [/tmp]

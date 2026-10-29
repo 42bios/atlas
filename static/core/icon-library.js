@@ -1,0 +1,6 @@
+let installedIconLibrary=[];
+async function refreshInstalledIcons(){try{const r=await fetch('/api/v1/icon-library');if(r.ok)installedIconLibrary=await r.json();}catch(_){} }
+function applicationIconFor(s){if(s.applicationIcon==='none')return null;if(s.applicationIcon)return installedIconLibrary.find(i=>i.id===s.applicationIcon)||null;const values=[s.name,s.image,s.role].filter(Boolean).map(v=>v.toLowerCase());return installedIconLibrary.find(i=>i.match.some(m=>values.some(v=>v===m||v.startsWith(m+'-')||v.includes('/'+m+':'))))||null;}
+function applicationIconMarkup(s,size=23){const i=applicationIconFor(s);return i?`<img class="extension-application-icon" width="${size}" height="${size}" src="${esc(i.image)}" alt="">`:icon(kindIcon(s),size);}
+function applicationIconField(s){return `<details class="device-form-section"><summary>Application icon</summary>${selectField('Icon from installed packs','applicationIcon',s?.applicationIcon||'',[['','Automatic matching'],['none','Use default icon'],...installedIconLibrary.map(i=>[i.id,i.pack+' · '+i.name])])}<p class="form-hint">Install icon packs in Marketplace. Automatic matching uses the application name, image or role.</p></details>`;}
+document.addEventListener('DOMContentLoaded',refreshInstalledIcons);

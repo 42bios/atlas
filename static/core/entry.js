@@ -1,0 +1,1 @@
+AtlasModules.register('core',{});

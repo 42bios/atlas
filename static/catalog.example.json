@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "devices": [
+    {
+      "id": "example-switch-24",
+      "name": "Example 24-port switch",
+      "manufacturer": "Your manufacturer",
+      "model": "Your model",
+      "kind": "Switch",
+      "height": 1,
+      "ports": 24
+    },
+    {
+      "id": "patch-panel-24-1u",
+      "name": "24-port keystone patch panel",
+      "manufacturer": "Generic",
+      "model": "24-port 1U blank panel",
+      "kind": "Patch panel",
+      "height": 1,
+      "ports": 24
+    }
+  ]
+}

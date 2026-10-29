@@ -1,0 +1,29 @@
+function rackUsedUnits(rack){return new Set(state.devices.filter(d=>d.rack===rack.id&&Number(d.height)>0).flatMap(d=>occupiedUnits(d,rack))).size;}
+function deviceTemplates(){const disabled=new Set((state.catalogSources||[]).filter(s=>s.enabled===false).map(s=>s.id));return (state.deviceCatalog||[]).filter(m=>!disabled.has(m.catalogId));}
+
+
+function ipv4Number(ip){const parts=String(ip).split('.');return parts.length===4&&parts.every(p=>/^\d+$/.test(p)&&Number(p)<=255)?parts.reduce((n,p)=>n*256+Number(p),0):null;}
+function ipv4Text(n){return [24,16,8,0].map(bits=>Math.floor(n/2**bits)%256).join('.');}
+function addressInventory(){const rows=[];for(const o of objects()){const seen=new Set();for(const i of o.interfaces||[])for(const ip of i.ips||[]){rows.push({id:o.id+'-'+i.name+'-'+ip,objectId:o.id,name:o.name,ip,interface:i.name,status:'Assigned'});seen.add(addressKey(ip));}if(o.ip&&!seen.has(addressKey(o.ip)))rows.push({id:o.id+'-primary',objectId:o.id,name:o.name,ip:o.ip,interface:'Primary',status:'Assigned'});}return [...rows,...state.addresses];}
+function subnetInfo(cidr){const [ip,prefix]=String(cidr).split('/'),base=ipv4Number(ip),bits=Number(prefix);if(base===null||!/^\d+$/.test(prefix)||bits<0||bits>32)return null;const size=2**(32-bits),start=Math.floor(base/size)*size;return {start,end:start+size-1,first:start+(bits<31?1:0),last:start+size-1-(bits<31?1:0),size,usable:size-(bits<31?2:0)};}
+function nextAvailableIP(n,rows=addressInventory()){const sub=subnetInfo(n.cidr);if(!sub){const [base,prefix]=n.cidr.split('/'),a=ipBits(base);if(!a||a.bits!==128)return '';const end=a.value+(1n<<BigInt(128-Number(prefix)))-1n,used=new Set(rows.map(o=>addressKey(o.ip)));let value=a.value;while(used.has('128:'+value)&&value<=end)value++;return value<=end?Array.from({length:8},(_,i)=>((value>>BigInt((7-i)*16))&65535n).toString(16)).join(':'):'';}const used=new Set(rows.map(o=>ipv4Number(o.ip)).filter(x=>x!==null));let candidate=sub.first;while(used.has(candidate)&&candidate<=sub.last)candidate++;return candidate<=sub.last?ipv4Text(candidate):'';}
+function ipBits(ip){if(!ip.includes(':')){const n=ipv4Number(ip);return n===null?null:{bits:32,value:BigInt(n)};}let text=ip.toLowerCase();if(text.includes('.')){const last=text.slice(text.lastIndexOf(':')+1),n=ipv4Number(last);if(n===null)return null;text=text.slice(0,text.lastIndexOf(':')+1)+Math.floor(n/65536).toString(16)+':'+(n%65536).toString(16);}const split=text.split('::');if(split.length>2)return null;const left=split[0]?split[0].split(':'):[],right=split[1]?split[1].split(':'):[],missing=8-left.length-right.length;if((split.length===1&&missing!==0)||(split.length===2&&missing<1))return null;const parts=[...left,...Array(missing).fill('0'),...right];if(parts.length!==8||!parts.every(p=>/^[0-9a-f]{1,4}$/.test(p)))return null;return {bits:128,value:parts.reduce((n,p)=>(n<<16n)+BigInt(parseInt(p,16)),0n)};}
+function addressKey(ip){const parsed=ipBits(String(ip));return parsed?parsed.bits+':'+parsed.value:String(ip);}
+function belongs(ip,cidr){try{const [base,prefix]=cidr.split('/');const n=s=>s.split('.').reduce((a,x)=>(a<<8)+Number(x),0)>>>0;const mask=Number(prefix)===0?0:(0xffffffff<<(32-Number(prefix)))>>>0;return ip.includes('.')&&(n(ip)&mask)===(n(base)&mask);}catch{return false;}}
+const rackAccessoryKinds=['Patch panel','Cable manager','Rack shelf','Network outlet'];
+function isRackAccessory(d){return rackAccessoryKinds.includes(d?.kind);}
+function deviceLocation(d){return deviceRack(d)?.location||d.location||'';}
+function shelfItems(id){return state.devices.filter(d=>d.shelfId===id);}
+function occupiedHeight(d){return d.kind==='Rack shelf'?Number(d.shelfSpace??(Number(d.height||0)+Number(d.shelfClearance||0))):Number(d.height||0);}
+function occupiedUnits(d,r){const clearance=d.kind==='Rack shelf'?occupiedHeight(d)-Number(d.height||1):0;const start=r.numbering==='top'?d.unit-clearance:d.unit;return Array.from({length:occupiedHeight(d)},(_,i)=>start+i);}
+function deviceRack(d){const parent=state.devices.find(s=>s.id===d.shelfId);return state.racks.find(r=>r.id===(parent?.rack||d.rack));}
+
+belongs=function(ip,cidr){const [base,prefix]=String(cidr).split("/"),a=ipBits(String(ip)),b=ipBits(base),p=Number(prefix);if(!a||!b||a.bits!==b.bits||!/^\d+$/.test(prefix)||p<0||p>a.bits)return false;const shift=BigInt(a.bits-p);return a.value>>shift===b.value>>shift;};
+
+function cableSummary(l){if(l.type==='VPN')return [l.vpnProtocol,l.tunnelName].filter(Boolean).join(' · ')||'VPN';if(l.type!=='Network')return '—';const parts=[];if(l.cableMedium==='fiber')parts.push('Fiber optic',l.fiberType,l.fiberCount?`${l.fiberCount} fibers`:'',l.fiberArrangement,l.sourceConnector||l.targetConnector?`${l.sourceConnector||'?'} → ${l.targetConnector||'?'}`:'',l.fiberReference);if(l.cableMedium==='copper')parts.push('Copper Ethernet',l.copperCategory);parts.push(l.cableLabel,l.cableLength?`${l.cableLength} m`:'');return parts.filter(Boolean).join(' · ')||'Not documented';}
+
+function connectionPortLabel(port){return String(port||'Not documented').replace(/^front:/,'Front · ').replace(/^rear:/,'Rear · ');}
+
+function formatInterfaceSpeed(mbps){return Number(mbps)>=1000?Number(mbps)/1000+' Gbps':Number(mbps)+' Mbps';}
+
+const baseCableSummary=cableSummary;cableSummary=function(l){if(l.type==='Wi-Fi')return [l.ssid?'SSID · '+l.ssid:'SSID not documented',l.wifiBand,l.bssid?'BSSID · '+l.bssid:'',l.wifiNotes].filter(Boolean).join(' · ');if(l.type==='Network'&&['dac','aoc'].includes(l.cableMedium))return [l.cableMedium.toUpperCase(),l.dacMode,l.sourceConnector||l.targetConnector?`${l.sourceConnector||'?'} ↔ ${l.targetConnector||'?'}`:'',l.cableSpeedMbps?formatInterfaceSpeed(l.cableSpeedMbps):'',l.cableLabel,l.cableLength?l.cableLength+' m':''].filter(Boolean).join(' · ');return baseCableSummary(l);};

@@ -1,0 +1,22 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const context=vm.createContext({state:{deviceCatalog:[{frontImage:'https://example.test/front.png',frontImageFrame:{x:100,y:250,width:800,height:75,canvasWidth:1000,canvasHeight:1000,rackSuitable:true}}]},esc:s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;')});
+vm.runInContext(fs.readFileSync('static/modules/hardware/details.js','utf8').split('function deviceFace(')[0],context);
+const rendered=vm.runInContext('deviceImageMarkup("https://example.test/front.png","Switch front")',context);
+assert.match(rendered,/viewBox="100 250 800 75"/);
+assert.match(rendered,/preserveAspectRatio="xMidYMid meet"/);
+assert.match(rendered,/width="1000" height="1000"/);
+assert.match(vm.runInContext('deviceImageMarkup("custom.png","Custom")',context),/^<img /);
+context.state.deviceCatalog[0].frontImageFrame.width='"><script>';
+assert.match(vm.runInContext('deviceImageMarkup("https://example.test/front.png","Switch")',context),/^<img /);
+console.log('Device image viewport and malformed metadata tests passed');
+context.state.deviceCatalog[0].frontImageFrame={x:100,y:250,width:800,height:75,canvasWidth:1000,canvasHeight:1000,rackSuitable:false};
+vm.runInContext(fs.readFileSync('static/modules/hardware/details.js','utf8').split('function inspector(')[0].split('function deviceFace(')[1].replace(/^/,'function deviceFace('),context);
+context.rackArtwork=()=>'';context.rawRackArtwork=()=> 'https://example.test/front.png';
+const rear=vm.runInContext('deviceFace({name:"Legacy switch",kind:"Switch",ports:16},"rear")',context);
+assert.doesNotMatch(rear,/socket-grid|<img/);
+assert.match(rear,/Schematic power inlet/);
+console.log('Annotated legacy rear avoids invented network ports');
+
+assert.match(rendered,/class="device-preview-image /);
+assert.doesNotMatch(rendered,/class="device-photo/);
+assert.match(vm.runInContext('deviceImageMarkup("custom.png","Rack","device-photo")',context),/class="device-photo"/);

@@ -1,0 +1,25 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+let chosen,markup='',title='',listeners={},form={hidden:false,textContent:''};
+const pkg={id:'repo-portainer',repositoryName:'example/portainer',installed:true};
+const instances=[{id:'one',plugin:pkg.id,name:'Main host'}];
+const ctx=vm.createContext({URL,URLSearchParams,Date,document:{addEventListener:(event,fn)=>(listeners[event]??=[]).push(fn),querySelectorAll:()=>[]},icon:()=>'',esc:x=>String(x??''),pill:x=>x,field:()=>'',modal:(t,h)=>{title=t;markup=h},$:()=>form,connectorFetch:async()=>({ok:true,json:async()=>({packages:[pkg],instances})}),configureAddin:(...args)=>{chosen=args}});
+vm.runInContext(fs.readFileSync('static/modules/connectors/marketplace.js','utf8'),ctx);
+vm.runInContext(`marketplaceData={packages:[{key:'catalog/portainer',type:'connector',installed:true,name:'Portainer',repositoryName:'example/portainer',repository:'https://github.com/example/portainer',ref:'a'.repeat(40),version:'1',documentation:'README.md',permissions:[]}],sources:[]}`,ctx);
+(async()=>{
+ const html=vm.runInContext("marketplaceDetailContent('catalog/portainer')",ctx);
+ assert.match(html,/class="button primary" data-market-configure="catalog\/portainer"/);
+ assert.doesNotMatch(html,/Review installed version/);
+ await vm.runInContext("marketplaceConfigure('catalog/portainer')",ctx);
+ assert.deepEqual(chosen,['repo-portainer','one']);
+ instances.splice(0);chosen=null;
+ await vm.runInContext("marketplaceConfigure('catalog/portainer')",ctx);
+ assert.deepEqual(chosen,['repo-portainer',undefined]);
+ instances.push({id:'one',plugin:pkg.id,name:'Main'},{id:'two',plugin:pkg.id,name:'Second'});chosen=null;
+ await vm.runInContext("marketplaceConfigure('catalog/portainer')",ctx);
+ assert.equal(chosen,null);assert.equal(title,'Choose connector instance');assert.match(markup,/data-market-instance="two"/);assert.equal(form.hidden,true);
+ instances.splice(1);instances[0].running=true;
+ await assert.rejects(vm.runInContext("marketplaceConfigure('catalog/portainer')",ctx),/import is running/);
+ ctx.connectorFetch=async()=>({ok:false});
+ await assert.rejects(vm.runInContext("marketplaceConfigure('catalog/portainer')",ctx),/Unable to load/);
+ console.log('Marketplace setup routes to the matching existing instance, new instance, or chooser; running imports and fetch failures are protected.');
+})().catch(e=>{console.error(e);process.exitCode=1});

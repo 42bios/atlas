@@ -1,0 +1,183 @@
+{
+  "id": "connections",
+  "name": "Connections",
+  "description": "Network, Wi-Fi, fiber, DAC/AOC, power and logical terminations.",
+  "version": "1.0.0",
+  "requires": [
+    "core",
+    "hardware"
+  ],
+  "pages": [
+    {
+      "id": "connections",
+      "label": "Connections",
+      "icon": "link",
+      "group": "Network",
+      "order": 6
+    }
+  ],
+  "pluginApi": 1,
+  "backendRoutes": [
+    [
+      "GET",
+      "/api/v1/connections"
+    ]
+  ],
+  "assets": [
+    {
+      "path": "/modules/connections/discovery.js",
+      "owner": "connections",
+      "legacy": "/discovery.js",
+      "order": 17
+    },
+    {
+      "path": "/modules/connections/connections.js",
+      "owner": "connections",
+      "legacy": "/connections.js",
+      "order": 19
+    },
+    {
+      "path": "/modules/connections/views.js",
+      "owner": "connections",
+      "legacy": null,
+      "order": 1.3
+    },
+    {
+      "path": "/modules/connections/actions.js",
+      "owner": "connections",
+      "legacy": null,
+      "order": 2.2
+    },
+    {
+      "path": "/modules/connections/entry.js",
+      "owner": "connections",
+      "order": 105,
+      "legacy": null
+    },
+    {
+      "path": "/modules/connections/endpoints.js",
+      "owner": "connections",
+      "order": 9.05
+    },
+    {
+      "path": "/modules/connections/tracing.js",
+      "owner": "connections",
+      "order": 10.2
+    }
+  ],
+  "bindings": {
+    "/modules/connections/discovery.js": [],
+    "/modules/connections/connections.js": [
+      {
+        "name": "connectionContext",
+        "writable": true
+      },
+      {
+        "name": "connectionSentence",
+        "writable": true
+      },
+      {
+        "name": "connectionEndpointCell",
+        "writable": true
+      },
+      {
+        "name": "baseConnectionEndpoints",
+        "writable": false
+      },
+      {
+        "name": "updateConnectionPreview",
+        "writable": true
+      }
+    ],
+    "/modules/connections/views.js": [
+      {
+        "name": "renderConnections",
+        "writable": true
+      }
+    ],
+    "/modules/connections/actions.js": [
+      {
+        "name": "editLink",
+        "writable": true
+      },
+      {
+        "name": "directCableConnectors",
+        "writable": true
+      },
+      {
+        "name": "fiberConnectors",
+        "writable": true
+      },
+      {
+        "name": "updateCableFields",
+        "writable": true
+      }
+    ],
+    "/modules/connections/entry.js": [],
+    "/modules/connections/endpoints.js": [
+      {
+        "name": "connectionFilter",
+        "writable": true
+      },
+      {
+        "name": "connectionCategory",
+        "writable": true
+      },
+      {
+        "name": "connectionMatches",
+        "writable": true
+      },
+      {
+        "name": "connectionFilters",
+        "writable": true
+      },
+      {
+        "name": "updateConnectionEndpoints",
+        "writable": true
+      },
+      {
+        "name": "connectionEditingId",
+        "writable": true
+      },
+      {
+        "name": "originalEditLink",
+        "writable": false
+      },
+      {
+        "name": "navigationConnectionMatches",
+        "writable": false
+      },
+      {
+        "name": "devicePorts",
+        "writable": true
+      },
+      {
+        "name": "portInUse",
+        "writable": true
+      }
+    ],
+    "/modules/connections/tracing.js": [
+      {
+        "name": "terminationKey",
+        "writable": true
+      },
+      {
+        "name": "patchPeer",
+        "writable": true
+      },
+      {
+        "name": "traceNetworkCable",
+        "writable": true
+      },
+      {
+        "name": "showCableTrace",
+        "writable": true
+      },
+      {
+        "name": "connectionObjectAllowed",
+        "writable": true
+      }
+    ]
+  },
+  "required": true
+}

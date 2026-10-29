@@ -1,0 +1,1896 @@
+{
+  "/modules/applications/dependency-map.js": [
+    {
+      "name": "dependencyZoom",
+      "writable": true
+    },
+    {
+      "name": "dependencyHosting",
+      "writable": true
+    },
+    {
+      "name": "dependencyFilter",
+      "writable": true
+    },
+    {
+      "name": "dependencyDepth",
+      "writable": true
+    },
+    {
+      "name": "dependencyLabels",
+      "writable": true
+    },
+    {
+      "name": "applicationMapQuery",
+      "writable": true
+    },
+    {
+      "name": "applicationRole",
+      "writable": true
+    },
+    {
+      "name": "applicationMapPage",
+      "writable": true
+    },
+    {
+      "name": "applicationIncludeMissing",
+      "writable": true
+    },
+    {
+      "name": "relationshipStyle",
+      "writable": false
+    },
+    {
+      "name": "dependencyMatches",
+      "writable": true
+    },
+    {
+      "name": "applicationActive",
+      "writable": true
+    },
+    {
+      "name": "applicationGraph",
+      "writable": true
+    },
+    {
+      "name": "dependencyRanks",
+      "writable": true
+    },
+    {
+      "name": "dependencyLayout",
+      "writable": true
+    },
+    {
+      "name": "dependencyEdges",
+      "writable": true
+    },
+    {
+      "name": "applicationOverviewGroups",
+      "writable": true
+    },
+    {
+      "name": "applicationOverview",
+      "writable": true
+    },
+    {
+      "name": "applicationUsesOverview",
+      "writable": true
+    },
+    {
+      "name": "applicationMap",
+      "writable": true
+    },
+    {
+      "name": "fitDependencyMap",
+      "writable": true
+    }
+  ],
+  "/modules/applications/views.js": [
+    {
+      "name": "renderServiceCards",
+      "writable": true
+    },
+    {
+      "name": "hostedApplications",
+      "writable": true
+    },
+    {
+      "name": "applicationScopeQuery",
+      "writable": true
+    },
+    {
+      "name": "recentApplicationScopes",
+      "writable": true
+    },
+    {
+      "name": "applicationScopeOptions",
+      "writable": true
+    },
+    {
+      "name": "hostNavigation",
+      "writable": true
+    },
+    {
+      "name": "openHostApplications",
+      "writable": true
+    }
+  ],
+  "/modules/applications/actions.js": [
+    {
+      "name": "editService",
+      "writable": true
+    }
+  ],
+  "/modules/applications/entry.js": [],
+  "/modules/applications/workflows.js": [
+    {
+      "name": "applicationPresentation",
+      "writable": true
+    },
+    {
+      "name": "renderServices",
+      "writable": true
+    }
+  ],
+  "/modules/applications/editor-flows.js": [
+    {
+      "name": "applicationOtherHosts",
+      "writable": true
+    },
+    {
+      "name": "applicationHostChoices",
+      "writable": true
+    },
+    {
+      "name": "updateApplicationFields",
+      "writable": true
+    },
+    {
+      "name": "applicationListType",
+      "writable": true
+    },
+    {
+      "name": "applicationListRole",
+      "writable": true
+    },
+    {
+      "name": "applicationListMissing",
+      "writable": true
+    },
+    {
+      "name": "applicationListPage",
+      "writable": true
+    },
+    {
+      "name": "filteredApplicationList",
+      "writable": true
+    },
+    {
+      "name": "applicationListFilters",
+      "writable": true
+    },
+    {
+      "name": "applicationImageLabel",
+      "writable": true
+    },
+    {
+      "name": "runtimeKinds",
+      "writable": false
+    }
+  ],
+  "/modules/catalogs/catalog.js": [
+    {
+      "name": "catalogIntegration",
+      "writable": true
+    }
+  ],
+  "/modules/catalogs/entry.js": [],
+  "/modules/catalogs/workflows.js": [
+    {
+      "name": "catalogQuery",
+      "writable": true
+    },
+    {
+      "name": "catalogPage",
+      "writable": true
+    },
+    {
+      "name": "catalogFilters",
+      "writable": true
+    },
+    {
+      "name": "catalogSourceManager",
+      "writable": true
+    },
+    {
+      "name": "catalogMatchingModels",
+      "writable": true
+    },
+    {
+      "name": "renderCatalogs",
+      "writable": true
+    }
+  ],
+  "/modules/connections/discovery.js": [],
+  "/modules/connections/connections.js": [
+    {
+      "name": "connectionContext",
+      "writable": true
+    },
+    {
+      "name": "connectionSentence",
+      "writable": true
+    },
+    {
+      "name": "connectionEndpointCell",
+      "writable": true
+    },
+    {
+      "name": "baseConnectionEndpoints",
+      "writable": false
+    },
+    {
+      "name": "updateConnectionPreview",
+      "writable": true
+    }
+  ],
+  "/modules/connections/views.js": [
+    {
+      "name": "renderConnections",
+      "writable": true
+    }
+  ],
+  "/modules/connections/actions.js": [
+    {
+      "name": "editLink",
+      "writable": true
+    },
+    {
+      "name": "directCableConnectors",
+      "writable": true
+    },
+    {
+      "name": "fiberConnectors",
+      "writable": true
+    },
+    {
+      "name": "updateCableFields",
+      "writable": true
+    }
+  ],
+  "/modules/connections/entry.js": [],
+  "/modules/connections/endpoints.js": [
+    {
+      "name": "connectionFilter",
+      "writable": true
+    },
+    {
+      "name": "connectionCategory",
+      "writable": true
+    },
+    {
+      "name": "connectionMatches",
+      "writable": true
+    },
+    {
+      "name": "connectionFilters",
+      "writable": true
+    },
+    {
+      "name": "updateConnectionEndpoints",
+      "writable": true
+    },
+    {
+      "name": "connectionEditingId",
+      "writable": true
+    },
+    {
+      "name": "originalEditLink",
+      "writable": false
+    },
+    {
+      "name": "navigationConnectionMatches",
+      "writable": false
+    },
+    {
+      "name": "devicePorts",
+      "writable": true
+    },
+    {
+      "name": "portInUse",
+      "writable": true
+    }
+  ],
+  "/modules/connections/tracing.js": [
+    {
+      "name": "terminationKey",
+      "writable": true
+    },
+    {
+      "name": "patchPeer",
+      "writable": true
+    },
+    {
+      "name": "traceNetworkCable",
+      "writable": true
+    },
+    {
+      "name": "showCableTrace",
+      "writable": true
+    },
+    {
+      "name": "connectionObjectAllowed",
+      "writable": true
+    }
+  ],
+  "/modules/connectors/plugins.js": [
+    {
+      "name": "pluginPanel",
+      "writable": true
+    },
+    {
+      "name": "loadPluginStatus",
+      "writable": true
+    },
+    {
+      "name": "connectorListLoader",
+      "writable": false
+    },
+    {
+      "name": "connectorPackages",
+      "writable": true
+    },
+    {
+      "name": "connectorSetupDraft",
+      "writable": true
+    },
+    {
+      "name": "connectorSetupPreview",
+      "writable": true
+    },
+    {
+      "name": "connectorSetupStarted",
+      "writable": true
+    },
+    {
+      "name": "loadConnectorPackages",
+      "writable": true
+    },
+    {
+      "name": "setupPluginPanel",
+      "writable": false
+    },
+    {
+      "name": "setupPluginStatus",
+      "writable": false
+    },
+    {
+      "name": "connectorConfigurationFields",
+      "writable": true
+    },
+    {
+      "name": "renderConnectorConfiguration",
+      "writable": true
+    },
+    {
+      "name": "renderConnectorReview",
+      "writable": true
+    },
+    {
+      "name": "connectorSetupRequest",
+      "writable": true
+    },
+    {
+      "name": "openConnectorSetup",
+      "writable": true
+    },
+    {
+      "name": "renderConnectorVerification",
+      "writable": true
+    },
+    {
+      "name": "verifyConnectorReport",
+      "writable": true
+    }
+  ],
+  "/modules/connectors/addins.js": [
+    {
+      "name": "atlasAddins",
+      "writable": true
+    },
+    {
+      "name": "atlasConnectorReports",
+      "writable": true
+    },
+    {
+      "name": "addinPollTimer",
+      "writable": true
+    },
+    {
+      "name": "addinSchedule",
+      "writable": true
+    },
+    {
+      "name": "addinsLoadingRequest",
+      "writable": true
+    },
+    {
+      "name": "connectorFetch",
+      "writable": true
+    },
+    {
+      "name": "connectedSystemCard",
+      "writable": true
+    },
+    {
+      "name": "installedConnectorPackages",
+      "writable": true
+    },
+    {
+      "name": "loadAtlasAddins",
+      "writable": true
+    },
+    {
+      "name": "connectSystem",
+      "writable": true
+    },
+    {
+      "name": "addinRequest",
+      "writable": true
+    },
+    {
+      "name": "configureAddin",
+      "writable": true
+    },
+    {
+      "name": "confirmAddinRemoval",
+      "writable": true
+    }
+  ],
+  "/modules/connectors/actions.js": [
+    {
+      "name": "loadConnectors",
+      "writable": true
+    }
+  ],
+  "/modules/connectors/entry.js": [],
+  "/modules/connectors/repository-addins.js": [
+    {
+      "name": "repositoryPackageDetails",
+      "writable": true
+    },
+    {
+      "name": "repositoryConfiguration",
+      "writable": true
+    },
+    {
+      "name": "addRepository",
+      "writable": true
+    },
+    {
+      "name": "reviewRepository",
+      "writable": true
+    },
+    {
+      "name": "bundledConfigureAddin",
+      "writable": false
+    },
+    {
+      "name": "configureGitHubAccess",
+      "writable": true
+    }
+  ],
+  "/modules/connectors/marketplace.js": [
+    {
+      "name": "marketplaceData",
+      "writable": true
+    },
+    {
+      "name": "marketplaceTab",
+      "writable": true
+    },
+    {
+      "name": "marketplaceType",
+      "writable": true
+    },
+    {
+      "name": "marketplaceQuery",
+      "writable": true
+    },
+    {
+      "name": "marketplaceLoading",
+      "writable": true
+    },
+    {
+      "name": "marketplaceBusy",
+      "writable": true
+    },
+    {
+      "name": "marketplaceGrouping",
+      "writable": true
+    },
+    {
+      "name": "marketplaceSort",
+      "writable": true
+    },
+    {
+      "name": "marketplaceStatus",
+      "writable": true
+    },
+    {
+      "name": "marketplaceFilters",
+      "writable": true
+    },
+    {
+      "name": "marketplaceSelectedKey",
+      "writable": true
+    },
+    {
+      "name": "marketplaceCollapsed",
+      "writable": false
+    },
+    {
+      "name": "marketplaceDocuments",
+      "writable": false
+    },
+    {
+      "name": "marketplaceTypes",
+      "writable": false
+    },
+    {
+      "name": "marketplaceLogo",
+      "writable": true
+    },
+    {
+      "name": "renderMarketplace",
+      "writable": true
+    },
+    {
+      "name": "marketplaceContent",
+      "writable": true
+    },
+    {
+      "name": "marketplacePackageStatus",
+      "writable": true
+    },
+    {
+      "name": "marketplaceRows",
+      "writable": true
+    },
+    {
+      "name": "marketplaceActivity",
+      "writable": true
+    },
+    {
+      "name": "marketplaceRow",
+      "writable": true
+    },
+    {
+      "name": "marketplaceSources",
+      "writable": true
+    },
+    {
+      "name": "paintMarketplace",
+      "writable": true
+    },
+    {
+      "name": "loadMarketplace",
+      "writable": true
+    },
+    {
+      "name": "marketplaceRequest",
+      "writable": true
+    },
+    {
+      "name": "refreshMarketplace",
+      "writable": true
+    },
+    {
+      "name": "marketplaceSourceDialog",
+      "writable": true
+    },
+    {
+      "name": "marketplaceDetails",
+      "writable": true
+    },
+    {
+      "name": "marketplaceBack",
+      "writable": true
+    },
+    {
+      "name": "marketplaceDetailContent",
+      "writable": true
+    },
+    {
+      "name": "marketplaceDocumentKey",
+      "writable": true
+    },
+    {
+      "name": "marketplaceLoadDocument",
+      "writable": true
+    },
+    {
+      "name": "marketplaceSafeUrl",
+      "writable": true
+    },
+    {
+      "name": "marketplaceInline",
+      "writable": true
+    },
+    {
+      "name": "marketplaceMarkdown",
+      "writable": true
+    },
+    {
+      "name": "marketplaceReview",
+      "writable": true
+    },
+    {
+      "name": "marketplaceConfigure",
+      "writable": true
+    },
+    {
+      "name": "marketplaceConnectorProgress",
+      "writable": true
+    }
+  ],
+  "/core/app.js": [
+    {
+      "name": "$",
+      "writable": false
+    },
+    {
+      "name": "esc",
+      "writable": false
+    },
+    {
+      "name": "icons",
+      "writable": false
+    },
+    {
+      "name": "icon",
+      "writable": false
+    },
+    {
+      "name": "state",
+      "writable": true
+    },
+    {
+      "name": "view",
+      "writable": true
+    },
+    {
+      "name": "rackId",
+      "writable": true
+    },
+    {
+      "name": "side",
+      "writable": true
+    },
+    {
+      "name": "selected",
+      "writable": true
+    },
+    {
+      "name": "query",
+      "writable": true
+    },
+    {
+      "name": "networkId",
+      "writable": true
+    },
+    {
+      "name": "serviceGroup",
+      "writable": true
+    },
+    {
+      "name": "serviceHostId",
+      "writable": true
+    },
+    {
+      "name": "nav",
+      "writable": false
+    },
+    {
+      "name": "navGroups",
+      "writable": false
+    },
+    {
+      "name": "routeHash",
+      "writable": true
+    },
+    {
+      "name": "saveRoute",
+      "writable": true
+    },
+    {
+      "name": "navigate",
+      "writable": true
+    },
+    {
+      "name": "readRoute",
+      "writable": true
+    },
+    {
+      "name": "objects",
+      "writable": false
+    },
+    {
+      "name": "find",
+      "writable": false
+    },
+    {
+      "name": "name",
+      "writable": false
+    },
+    {
+      "name": "kindIcon",
+      "writable": false
+    },
+    {
+      "name": "pill",
+      "writable": false
+    },
+    {
+      "name": "shell",
+      "writable": true
+    },
+    {
+      "name": "header",
+      "writable": true
+    },
+    {
+      "name": "button",
+      "writable": false
+    },
+    {
+      "name": "renderView",
+      "writable": true
+    },
+    {
+      "name": "empty",
+      "writable": true
+    },
+    {
+      "name": "boot",
+      "writable": true
+    },
+    {
+      "name": "connectionObjectId",
+      "writable": true
+    },
+    {
+      "name": "ipamObjectId",
+      "writable": true
+    },
+    {
+      "name": "inventoryIncludeMissing",
+      "writable": true
+    },
+    {
+      "name": "inventoryVisible",
+      "writable": true
+    },
+    {
+      "name": "inventoryLinkVisible",
+      "writable": true
+    },
+    {
+      "name": "inventoryHistoryLabel",
+      "writable": true
+    },
+    {
+      "name": "inventoryHistoryControl",
+      "writable": true
+    }
+  ],
+  "/core/views.js": [
+    {
+      "name": "toolbar",
+      "writable": true
+    },
+    {
+      "name": "match",
+      "writable": true
+    }
+  ],
+  "/core/actions.js": [
+    {
+      "name": "toastTimer",
+      "writable": true
+    },
+    {
+      "name": "toast",
+      "writable": true
+    },
+    {
+      "name": "editorBaseState",
+      "writable": true
+    },
+    {
+      "name": "persist",
+      "writable": true
+    },
+    {
+      "name": "newId",
+      "writable": false
+    },
+    {
+      "name": "field",
+      "writable": true
+    },
+    {
+      "name": "selectField",
+      "writable": true
+    },
+    {
+      "name": "modal",
+      "writable": true
+    },
+    {
+      "name": "saveRecord",
+      "writable": true
+    },
+    {
+      "name": "deleteRecord",
+      "writable": true
+    },
+    {
+      "name": "readImage",
+      "writable": true
+    },
+    {
+      "name": "editingApplication",
+      "writable": true
+    },
+    {
+      "name": "action",
+      "writable": true
+    },
+    {
+      "name": "showHelp",
+      "writable": true
+    }
+  ],
+  "/core/workflows.js": [],
+  "/core/graph-ui.js": [
+    {
+      "name": "graphExpanded",
+      "writable": true
+    },
+    {
+      "name": "graphNodeWidth",
+      "writable": false
+    },
+    {
+      "name": "graphNodeHeight",
+      "writable": false
+    },
+    {
+      "name": "graphText",
+      "writable": true
+    },
+    {
+      "name": "graphCurve",
+      "writable": true
+    },
+    {
+      "name": "graphCanvas",
+      "writable": true
+    },
+    {
+      "name": "fitGraphMaps",
+      "writable": true
+    },
+    {
+      "name": "graphHighlight",
+      "writable": true
+    },
+    {
+      "name": "graphPan",
+      "writable": true
+    },
+    {
+      "name": "dependencyFitScale",
+      "writable": true
+    }
+  ],
+  "/core/flows.js": [
+    {
+      "name": "draftEqual",
+      "writable": false
+    },
+    {
+      "name": "mergeInventoryDraft",
+      "writable": true
+    },
+    {
+      "name": "validateImportIntent",
+      "writable": true
+    },
+    {
+      "name": "improveEditorDialog",
+      "writable": true
+    },
+    {
+      "name": "objectChoiceLabel",
+      "writable": true
+    },
+    {
+      "name": "confirmRecordDeletion",
+      "writable": true
+    }
+  ],
+  "/core/navigation.js": [
+    {
+      "name": "atlasNavigationIndex",
+      "writable": true
+    },
+    {
+      "name": "navigationRouteHash",
+      "writable": false
+    },
+    {
+      "name": "navigationReadRoute",
+      "writable": false
+    },
+    {
+      "name": "navigationNavigate",
+      "writable": false
+    },
+    {
+      "name": "updateNavigationChrome",
+      "writable": true
+    },
+    {
+      "name": "navigationRenderView",
+      "writable": false
+    },
+    {
+      "name": "openObjectJourney",
+      "writable": true
+    },
+    {
+      "name": "workspaceSearch",
+      "writable": true
+    },
+    {
+      "name": "featureNavigationRenderView",
+      "writable": false
+    }
+  ],
+  "/core/entry.js": [],
+  "/core/inventory-data.js": [
+    {
+      "name": "rackUsedUnits",
+      "writable": true
+    },
+    {
+      "name": "deviceTemplates",
+      "writable": true
+    },
+    {
+      "name": "ipv4Number",
+      "writable": true
+    },
+    {
+      "name": "ipv4Text",
+      "writable": true
+    },
+    {
+      "name": "addressInventory",
+      "writable": true
+    },
+    {
+      "name": "subnetInfo",
+      "writable": true
+    },
+    {
+      "name": "nextAvailableIP",
+      "writable": true
+    },
+    {
+      "name": "ipBits",
+      "writable": true
+    },
+    {
+      "name": "addressKey",
+      "writable": true
+    },
+    {
+      "name": "belongs",
+      "writable": true
+    },
+    {
+      "name": "rackAccessoryKinds",
+      "writable": false
+    },
+    {
+      "name": "isRackAccessory",
+      "writable": true
+    },
+    {
+      "name": "deviceLocation",
+      "writable": true
+    },
+    {
+      "name": "shelfItems",
+      "writable": true
+    },
+    {
+      "name": "occupiedHeight",
+      "writable": true
+    },
+    {
+      "name": "occupiedUnits",
+      "writable": true
+    },
+    {
+      "name": "deviceRack",
+      "writable": true
+    },
+    {
+      "name": "cableSummary",
+      "writable": true
+    },
+    {
+      "name": "connectionPortLabel",
+      "writable": true
+    },
+    {
+      "name": "formatInterfaceSpeed",
+      "writable": true
+    },
+    {
+      "name": "baseCableSummary",
+      "writable": false
+    }
+  ],
+  "/core/icon-library.js": [
+    {
+      "name": "installedIconLibrary",
+      "writable": true
+    },
+    {
+      "name": "refreshInstalledIcons",
+      "writable": true
+    },
+    {
+      "name": "applicationIconFor",
+      "writable": true
+    },
+    {
+      "name": "applicationIconMarkup",
+      "writable": true
+    },
+    {
+      "name": "applicationIconField",
+      "writable": true
+    }
+  ],
+  "/core/appearance.js": [
+    {
+      "name": "appearanceControl",
+      "writable": true
+    },
+    {
+      "name": "updateAppearanceControl",
+      "writable": true
+    }
+  ],
+  "/modules/hardware/stencils.js": [
+    {
+      "name": "stencilLibrary",
+      "writable": true
+    },
+    {
+      "name": "stencilUsage",
+      "writable": true
+    },
+    {
+      "name": "stencilPage",
+      "writable": true
+    },
+    {
+      "name": "stencilLastQuery",
+      "writable": true
+    },
+    {
+      "name": "stencilLibraryName",
+      "writable": false
+    },
+    {
+      "name": "stencilLibraries",
+      "writable": false
+    },
+    {
+      "name": "stencilMatches",
+      "writable": false
+    },
+    {
+      "name": "stencilArtwork",
+      "writable": false
+    },
+    {
+      "name": "libraryOptions",
+      "writable": true
+    },
+    {
+      "name": "renderStencils",
+      "writable": true
+    },
+    {
+      "name": "previewStencil",
+      "writable": true
+    },
+    {
+      "name": "stencilPicker",
+      "writable": true
+    },
+    {
+      "name": "pickerSelection",
+      "writable": true
+    },
+    {
+      "name": "artworkSelections",
+      "writable": true
+    },
+    {
+      "name": "refreshArtworkSelection",
+      "writable": true
+    },
+    {
+      "name": "chooseDeviceArtwork",
+      "writable": true
+    },
+    {
+      "name": "pickerResults",
+      "writable": true
+    },
+    {
+      "name": "refreshPicker",
+      "writable": true
+    }
+  ],
+  "/modules/hardware/racks.js": [
+    {
+      "name": "rackViews",
+      "writable": false
+    },
+    {
+      "name": "rackPreferences",
+      "writable": true
+    },
+    {
+      "name": "saveRackPreferences",
+      "writable": true
+    },
+    {
+      "name": "rackArtwork",
+      "writable": true
+    },
+    {
+      "name": "rawRackArtwork",
+      "writable": true
+    },
+    {
+      "name": "renderRacks",
+      "writable": true
+    },
+    {
+      "name": "rackCanMove",
+      "writable": true
+    },
+    {
+      "name": "restoreRackScroll",
+      "writable": true
+    },
+    {
+      "name": "rackElevation",
+      "writable": true
+    },
+    {
+      "name": "pduVisible",
+      "writable": true
+    }
+  ],
+  "/modules/hardware/accessories.js": [
+    {
+      "name": "accessoryFace",
+      "writable": true
+    },
+    {
+      "name": "shelfEquipment",
+      "writable": true
+    },
+    {
+      "name": "shelfFields",
+      "writable": true
+    },
+    {
+      "name": "updateShelfFields",
+      "writable": true
+    }
+  ],
+  "/modules/hardware/shelf-layout.js": [
+    {
+      "name": "dimensionKeys",
+      "writable": false
+    },
+    {
+      "name": "modelDimensions",
+      "writable": true
+    },
+    {
+      "name": "dimensionFields",
+      "writable": true
+    },
+    {
+      "name": "dimensionSummary",
+      "writable": true
+    },
+    {
+      "name": "shelfRectangles",
+      "writable": true
+    },
+    {
+      "name": "shelfLayoutError",
+      "writable": true
+    },
+    {
+      "name": "shelfDraft",
+      "writable": true
+    },
+    {
+      "name": "arrangeShelf",
+      "writable": true
+    },
+    {
+      "name": "drawShelfPlan",
+      "writable": true
+    },
+    {
+      "name": "moveShelfItem",
+      "writable": true
+    }
+  ],
+  "/modules/hardware/rack-placement.js": [
+    {
+      "name": "editingRackDevice",
+      "writable": true
+    },
+    {
+      "name": "rackDrag",
+      "writable": true
+    },
+    {
+      "name": "rackPointerGrab",
+      "writable": true
+    },
+    {
+      "name": "rackOccupied",
+      "writable": true
+    },
+    {
+      "name": "rackPlacementFits",
+      "writable": true
+    },
+    {
+      "name": "rackFreePositions",
+      "writable": true
+    },
+    {
+      "name": "rackFreeRuns",
+      "writable": true
+    },
+    {
+      "name": "rackSuggestedPosition",
+      "writable": true
+    },
+    {
+      "name": "rackPositionLabel",
+      "writable": true
+    },
+    {
+      "name": "updateRackPositionOptions",
+      "writable": true
+    },
+    {
+      "name": "rackSlotMarkup",
+      "writable": true
+    },
+    {
+      "name": "rackStartRow",
+      "writable": true
+    },
+    {
+      "name": "rackUnitAtRow",
+      "writable": true
+    },
+    {
+      "name": "snappedRackPlacement",
+      "writable": true
+    },
+    {
+      "name": "clearRackDrag",
+      "writable": true
+    },
+    {
+      "name": "rackDropPreview",
+      "writable": true
+    },
+    {
+      "name": "rackClickSuppressedUntil",
+      "writable": true
+    },
+    {
+      "name": "pointerRackPreview",
+      "writable": true
+    },
+    {
+      "name": "commitPointerRackDrop",
+      "writable": true
+    }
+  ],
+  "/modules/hardware/inventory.js": [
+    {
+      "name": "activeDeviceModel",
+      "writable": true
+    },
+    {
+      "name": "interfaceDraft",
+      "writable": true
+    },
+    {
+      "name": "deviceCategory",
+      "writable": true
+    },
+    {
+      "name": "newHardwareCategory",
+      "writable": true
+    },
+    {
+      "name": "categoryObjects",
+      "writable": true
+    },
+    {
+      "name": "deviceCategoryTabs",
+      "writable": true
+    },
+    {
+      "name": "deviceFilter",
+      "writable": true
+    },
+    {
+      "name": "hardwareKeys",
+      "writable": false
+    },
+    {
+      "name": "lockHardwareFields",
+      "writable": true
+    },
+    {
+      "name": "interfaceEditor",
+      "writable": true
+    },
+    {
+      "name": "interfaceEditorContent",
+      "writable": true
+    },
+    {
+      "name": "readInterfaceDraft",
+      "writable": true
+    },
+    {
+      "name": "deviceMatches",
+      "writable": true
+    },
+    {
+      "name": "deviceFilters",
+      "writable": true
+    },
+    {
+      "name": "deviceDetailPhoto",
+      "writable": true
+    },
+    {
+      "name": "inventoryDetails",
+      "writable": true
+    },
+    {
+      "name": "interfaceDetails",
+      "writable": true
+    }
+  ],
+  "/modules/hardware/views.js": [
+    {
+      "name": "renderDevices",
+      "writable": true
+    }
+  ],
+  "/modules/hardware/actions.js": [
+    {
+      "name": "editRack",
+      "writable": true
+    },
+    {
+      "name": "editDevice",
+      "writable": true
+    },
+    {
+      "name": "uploadStencil",
+      "writable": true
+    },
+    {
+      "name": "deviceHeightField",
+      "writable": true
+    },
+    {
+      "name": "dragged",
+      "writable": true
+    },
+    {
+      "name": "selectedStencilId",
+      "writable": true
+    },
+    {
+      "name": "selectedRearStencilId",
+      "writable": true
+    },
+    {
+      "name": "artworkFace",
+      "writable": true
+    },
+    {
+      "name": "artworkImages",
+      "writable": true
+    },
+    {
+      "name": "catalogArtwork",
+      "writable": true
+    }
+  ],
+  "/modules/hardware/entry.js": [],
+  "/modules/hardware/workflows.js": [
+    {
+      "name": "deviceImageEditor",
+      "writable": true
+    },
+    {
+      "name": "organizeDeviceEditor",
+      "writable": true
+    }
+  ],
+  "/modules/hardware/model-picker.js": [
+    {
+      "name": "builtinDeviceTemplates",
+      "writable": false
+    },
+    {
+      "name": "catalogPicker",
+      "writable": true
+    },
+    {
+      "name": "catalogOptions",
+      "writable": true
+    },
+    {
+      "name": "applyCatalogModel",
+      "writable": true
+    },
+    {
+      "name": "modelSelectionPreview",
+      "writable": true
+    }
+  ],
+  "/modules/hardware/category-editor.js": [
+    {
+      "name": "updateHardwareCategoryForm",
+      "writable": true
+    }
+  ],
+  "/modules/hardware/interface-facts.js": [
+    {
+      "name": "interfaceConnectors",
+      "writable": false
+    },
+    {
+      "name": "interfacePortStats",
+      "writable": true
+    },
+    {
+      "name": "baseInventoryDetails",
+      "writable": false
+    },
+    {
+      "name": "discoveryCoverage",
+      "writable": true
+    },
+    {
+      "name": "inventoryDetailsWithCoverage",
+      "writable": false
+    }
+  ],
+  "/modules/hardware/details.js": [
+    {
+      "name": "validDeviceImageFrame",
+      "writable": true
+    },
+    {
+      "name": "deviceImageFrame",
+      "writable": true
+    },
+    {
+      "name": "deviceImageMarkup",
+      "writable": true
+    },
+    {
+      "name": "deviceFace",
+      "writable": true
+    },
+    {
+      "name": "inspector",
+      "writable": true
+    },
+    {
+      "name": "navigationInspector",
+      "writable": false
+    },
+    {
+      "name": "inspectorSection",
+      "writable": true
+    },
+    {
+      "name": "inspectorObject",
+      "writable": true
+    },
+    {
+      "name": "organizeInspector",
+      "writable": true
+    }
+  ],
+  "/modules/ipam/planning.js": [
+    {
+      "name": "addressStatus",
+      "writable": true
+    },
+    {
+      "name": "networkStats",
+      "writable": true
+    },
+    {
+      "name": "countText",
+      "writable": false
+    },
+    {
+      "name": "renderIPs",
+      "writable": true
+    },
+    {
+      "name": "ipStatusFilter",
+      "writable": true
+    },
+    {
+      "name": "assignAddressPlan",
+      "writable": true
+    },
+    {
+      "name": "updateAssignmentInterfaces",
+      "writable": true
+    },
+    {
+      "name": "updateAssignmentName",
+      "writable": true
+    },
+    {
+      "name": "addressAssignmentDraft",
+      "writable": true
+    }
+  ],
+  "/modules/ipam/ipam.js": [
+    {
+      "name": "ipamTab",
+      "writable": true
+    },
+    {
+      "name": "ipamLayout",
+      "writable": true
+    },
+    {
+      "name": "ipamFamily",
+      "writable": true
+    },
+    {
+      "name": "ipamScope",
+      "writable": true
+    },
+    {
+      "name": "ipamQuery",
+      "writable": true
+    },
+    {
+      "name": "ipamPage",
+      "writable": true
+    },
+    {
+      "name": "ipamNetworkStatus",
+      "writable": true
+    },
+    {
+      "name": "ipamPageSize",
+      "writable": false
+    },
+    {
+      "name": "ipRange",
+      "writable": true
+    },
+    {
+      "name": "formatIP",
+      "writable": true
+    },
+    {
+      "name": "bestIPNetwork",
+      "writable": true
+    },
+    {
+      "name": "prefixParent",
+      "writable": true
+    },
+    {
+      "name": "suggestedStaticIP",
+      "writable": true
+    },
+    {
+      "name": "ipUsage",
+      "writable": true
+    },
+    {
+      "name": "ipStatusPill",
+      "writable": true
+    },
+    {
+      "name": "ipamSearch",
+      "writable": true
+    },
+    {
+      "name": "ipamCounts",
+      "writable": true
+    },
+    {
+      "name": "ipamTop",
+      "writable": true
+    },
+    {
+      "name": "ipamNetworkTable",
+      "writable": true
+    },
+    {
+      "name": "ipamFamilySelect",
+      "writable": true
+    },
+    {
+      "name": "ipamSlice",
+      "writable": true
+    },
+    {
+      "name": "ipamPagination",
+      "writable": true
+    },
+    {
+      "name": "ipamAddressRows",
+      "writable": true
+    },
+    {
+      "name": "ipamNetworkSummary",
+      "writable": true
+    },
+    {
+      "name": "ipamAddressTable",
+      "writable": true
+    },
+    {
+      "name": "renderIPs",
+      "writable": true
+    },
+    {
+      "name": "ipamAddressMap",
+      "writable": true
+    },
+    {
+      "name": "openIPNetwork",
+      "writable": true
+    },
+    {
+      "name": "baseIPRouteHash",
+      "writable": false
+    },
+    {
+      "name": "baseIPReadRoute",
+      "writable": false
+    },
+    {
+      "name": "ipamEditingPlan",
+      "writable": true
+    },
+    {
+      "name": "updateIPPlanHint",
+      "writable": true
+    },
+    {
+      "name": "navigationIPRows",
+      "writable": false
+    }
+  ],
+  "/modules/ipam/views.js": [
+    {
+      "name": "renderIPsLegacy",
+      "writable": true
+    }
+  ],
+  "/modules/ipam/actions.js": [
+    {
+      "name": "editNetwork",
+      "writable": true
+    },
+    {
+      "name": "editAddress",
+      "writable": true
+    }
+  ],
+  "/modules/ipam/entry.js": [],
+  "/modules/ipam/grid.js": [
+    {
+      "name": "renderIPs",
+      "writable": true
+    },
+    {
+      "name": "ipGridPage",
+      "writable": true
+    },
+    {
+      "name": "ipGridNetwork",
+      "writable": true
+    },
+    {
+      "name": "addressGrid",
+      "writable": true
+    }
+  ],
+  "/modules/overview/views.js": [
+    {
+      "name": "renderOverview",
+      "writable": true
+    },
+    {
+      "name": "overviewConnectorPackages",
+      "writable": true
+    },
+    {
+      "name": "overviewNextSteps",
+      "writable": true
+    },
+    {
+      "name": "loadOverviewNextSteps",
+      "writable": true
+    }
+  ],
+  "/modules/overview/entry.js": [],
+  "/modules/settings/views.js": [
+    {
+      "name": "settingsSection",
+      "writable": true
+    },
+    {
+      "name": "renderIntegrations",
+      "writable": true
+    },
+    {
+      "name": "hostBackupRequest",
+      "writable": true
+    },
+    {
+      "name": "backupResult",
+      "writable": true
+    }
+  ],
+  "/modules/settings/actions.js": [
+    {
+      "name": "importFile",
+      "writable": true
+    }
+  ],
+  "/modules/settings/entry.js": [],
+  "/modules/topology/topology-map.js": [
+    {
+      "name": "topologyQuery",
+      "writable": true
+    },
+    {
+      "name": "topologyRack",
+      "writable": true
+    },
+    {
+      "name": "topologyLocation",
+      "writable": true
+    },
+    {
+      "name": "topologyUnconnected",
+      "writable": true
+    },
+    {
+      "name": "topologyFocusOnly",
+      "writable": true
+    },
+    {
+      "name": "topologyZoom",
+      "writable": true
+    },
+    {
+      "name": "topologyLabels",
+      "writable": true
+    },
+    {
+      "name": "topologyStyles",
+      "writable": false
+    },
+    {
+      "name": "topologyGraph",
+      "writable": true
+    },
+    {
+      "name": "topologyLayout",
+      "writable": true
+    },
+    {
+      "name": "topologyControls",
+      "writable": true
+    },
+    {
+      "name": "topologyPaths",
+      "writable": true
+    },
+    {
+      "name": "topologyDiagram",
+      "writable": true
+    },
+    {
+      "name": "renderMap",
+      "writable": true
+    }
+  ],
+  "/modules/topology/views.js": [
+    {
+      "name": "renderMapLegacy",
+      "writable": true
+    }
+  ],
+  "/modules/topology/entry.js": [],
+  "/modules/topology/locations.js": [
+    {
+      "name": "topologyMode",
+      "writable": true
+    },
+    {
+      "name": "geoRacks",
+      "writable": true
+    },
+    {
+      "name": "renderLocations",
+      "writable": true
+    }
+  ],
+  "/modules/topology/observed.js": [
+    {
+      "name": "observedTopology",
+      "writable": true
+    },
+    {
+      "name": "documentedTopologyGraph",
+      "writable": false
+    },
+    {
+      "name": "renderObservedTopology",
+      "writable": true
+    }
+  ]
+}

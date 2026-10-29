@@ -1,0 +1,534 @@
+{
+  "id": "core",
+  "name": "Atlas core",
+  "description": "Storage, record identity, revision conflicts, shared UI and navigation.",
+  "version": "1.0.0",
+  "requires": [],
+  "pages": [],
+  "required": true,
+  "pluginApi": 1,
+  "optional": [
+    "hardware",
+    "applications",
+    "ipam",
+    "connections",
+    "topology",
+    "catalogs",
+    "connectors",
+    "settings"
+  ],
+  "backendRoutes": [],
+  "assets": [
+    {
+      "path": "/core/app.js",
+      "owner": "core",
+      "legacy": "/app.js",
+      "order": 0
+    },
+    {
+      "path": "/core/views.js",
+      "owner": "core",
+      "legacy": "/views.js",
+      "order": 1
+    },
+    {
+      "path": "/core/actions.js",
+      "owner": "core",
+      "legacy": "/actions.js",
+      "order": 2
+    },
+    {
+      "path": "/core/workflows.js",
+      "owner": "core",
+      "legacy": "/workflows.js",
+      "order": 11
+    },
+    {
+      "path": "/core/graph-ui.js",
+      "owner": "core",
+      "legacy": "/graph-ui.js",
+      "order": 12
+    },
+    {
+      "path": "/core/flows.js",
+      "owner": "core",
+      "legacy": "/flows.js",
+      "order": 16
+    },
+    {
+      "path": "/core/navigation.js",
+      "owner": "core",
+      "legacy": "/navigation.js",
+      "order": 20
+    },
+    {
+      "path": "/core/entry.js",
+      "owner": "core",
+      "order": 100,
+      "legacy": null
+    },
+    {
+      "path": "/core/inventory-data.js",
+      "owner": "core",
+      "order": 0.1
+    },
+    {
+      "path": "/core/icon-library.js",
+      "owner": "core",
+      "order": 12.8,
+      "legacy": null
+    },
+    {
+      "path": "/core/appearance.js",
+      "owner": "core",
+      "order": 1.5,
+      "legacy": null
+    }
+  ],
+  "bindings": {
+    "/core/app.js": [
+      {
+        "name": "$",
+        "writable": false
+      },
+      {
+        "name": "esc",
+        "writable": false
+      },
+      {
+        "name": "icons",
+        "writable": false
+      },
+      {
+        "name": "icon",
+        "writable": false
+      },
+      {
+        "name": "state",
+        "writable": true
+      },
+      {
+        "name": "view",
+        "writable": true
+      },
+      {
+        "name": "rackId",
+        "writable": true
+      },
+      {
+        "name": "side",
+        "writable": true
+      },
+      {
+        "name": "selected",
+        "writable": true
+      },
+      {
+        "name": "query",
+        "writable": true
+      },
+      {
+        "name": "networkId",
+        "writable": true
+      },
+      {
+        "name": "serviceGroup",
+        "writable": true
+      },
+      {
+        "name": "serviceHostId",
+        "writable": true
+      },
+      {
+        "name": "nav",
+        "writable": false
+      },
+      {
+        "name": "navGroups",
+        "writable": false
+      },
+      {
+        "name": "routeHash",
+        "writable": true
+      },
+      {
+        "name": "saveRoute",
+        "writable": true
+      },
+      {
+        "name": "navigate",
+        "writable": true
+      },
+      {
+        "name": "readRoute",
+        "writable": true
+      },
+      {
+        "name": "objects",
+        "writable": false
+      },
+      {
+        "name": "find",
+        "writable": false
+      },
+      {
+        "name": "name",
+        "writable": false
+      },
+      {
+        "name": "kindIcon",
+        "writable": false
+      },
+      {
+        "name": "pill",
+        "writable": false
+      },
+      {
+        "name": "shell",
+        "writable": true
+      },
+      {
+        "name": "header",
+        "writable": true
+      },
+      {
+        "name": "button",
+        "writable": false
+      },
+      {
+        "name": "renderView",
+        "writable": true
+      },
+      {
+        "name": "empty",
+        "writable": true
+      },
+      {
+        "name": "boot",
+        "writable": true
+      },
+      {
+        "name": "connectionObjectId",
+        "writable": true
+      },
+      {
+        "name": "ipamObjectId",
+        "writable": true
+      },
+      {
+        "name": "inventoryIncludeMissing",
+        "writable": true
+      },
+      {
+        "name": "inventoryVisible",
+        "writable": true
+      },
+      {
+        "name": "inventoryLinkVisible",
+        "writable": true
+      },
+      {
+        "name": "inventoryHistoryLabel",
+        "writable": true
+      },
+      {
+        "name": "inventoryHistoryControl",
+        "writable": true
+      }
+    ],
+    "/core/views.js": [
+      {
+        "name": "toolbar",
+        "writable": true
+      },
+      {
+        "name": "match",
+        "writable": true
+      }
+    ],
+    "/core/actions.js": [
+      {
+        "name": "toastTimer",
+        "writable": true
+      },
+      {
+        "name": "toast",
+        "writable": true
+      },
+      {
+        "name": "editorBaseState",
+        "writable": true
+      },
+      {
+        "name": "persist",
+        "writable": true
+      },
+      {
+        "name": "newId",
+        "writable": false
+      },
+      {
+        "name": "field",
+        "writable": true
+      },
+      {
+        "name": "selectField",
+        "writable": true
+      },
+      {
+        "name": "modal",
+        "writable": true
+      },
+      {
+        "name": "saveRecord",
+        "writable": true
+      },
+      {
+        "name": "deleteRecord",
+        "writable": true
+      },
+      {
+        "name": "readImage",
+        "writable": true
+      },
+      {
+        "name": "editingApplication",
+        "writable": true
+      },
+      {
+        "name": "action",
+        "writable": true
+      },
+      {
+        "name": "showHelp",
+        "writable": true
+      }
+    ],
+    "/core/workflows.js": [],
+    "/core/graph-ui.js": [
+      {
+        "name": "graphExpanded",
+        "writable": true
+      },
+      {
+        "name": "graphNodeWidth",
+        "writable": false
+      },
+      {
+        "name": "graphNodeHeight",
+        "writable": false
+      },
+      {
+        "name": "graphText",
+        "writable": true
+      },
+      {
+        "name": "graphCurve",
+        "writable": true
+      },
+      {
+        "name": "graphCanvas",
+        "writable": true
+      },
+      {
+        "name": "fitGraphMaps",
+        "writable": true
+      },
+      {
+        "name": "graphHighlight",
+        "writable": true
+      },
+      {
+        "name": "graphPan",
+        "writable": true
+      },
+      {
+        "name": "dependencyFitScale",
+        "writable": true
+      }
+    ],
+    "/core/flows.js": [
+      {
+        "name": "draftEqual",
+        "writable": false
+      },
+      {
+        "name": "mergeInventoryDraft",
+        "writable": true
+      },
+      {
+        "name": "validateImportIntent",
+        "writable": true
+      },
+      {
+        "name": "improveEditorDialog",
+        "writable": true
+      },
+      {
+        "name": "objectChoiceLabel",
+        "writable": true
+      },
+      {
+        "name": "confirmRecordDeletion",
+        "writable": true
+      }
+    ],
+    "/core/navigation.js": [
+      {
+        "name": "atlasNavigationIndex",
+        "writable": true
+      },
+      {
+        "name": "navigationRouteHash",
+        "writable": false
+      },
+      {
+        "name": "navigationReadRoute",
+        "writable": false
+      },
+      {
+        "name": "navigationNavigate",
+        "writable": false
+      },
+      {
+        "name": "updateNavigationChrome",
+        "writable": true
+      },
+      {
+        "name": "navigationRenderView",
+        "writable": false
+      },
+      {
+        "name": "openObjectJourney",
+        "writable": true
+      },
+      {
+        "name": "workspaceSearch",
+        "writable": true
+      },
+      {
+        "name": "featureNavigationRenderView",
+        "writable": false
+      }
+    ],
+    "/core/entry.js": [],
+    "/core/inventory-data.js": [
+      {
+        "name": "rackUsedUnits",
+        "writable": true
+      },
+      {
+        "name": "deviceTemplates",
+        "writable": true
+      },
+      {
+        "name": "ipv4Number",
+        "writable": true
+      },
+      {
+        "name": "ipv4Text",
+        "writable": true
+      },
+      {
+        "name": "addressInventory",
+        "writable": true
+      },
+      {
+        "name": "subnetInfo",
+        "writable": true
+      },
+      {
+        "name": "nextAvailableIP",
+        "writable": true
+      },
+      {
+        "name": "ipBits",
+        "writable": true
+      },
+      {
+        "name": "addressKey",
+        "writable": true
+      },
+      {
+        "name": "belongs",
+        "writable": true
+      },
+      {
+        "name": "rackAccessoryKinds",
+        "writable": false
+      },
+      {
+        "name": "isRackAccessory",
+        "writable": true
+      },
+      {
+        "name": "deviceLocation",
+        "writable": true
+      },
+      {
+        "name": "shelfItems",
+        "writable": true
+      },
+      {
+        "name": "occupiedHeight",
+        "writable": true
+      },
+      {
+        "name": "occupiedUnits",
+        "writable": true
+      },
+      {
+        "name": "deviceRack",
+        "writable": true
+      },
+      {
+        "name": "cableSummary",
+        "writable": true
+      },
+      {
+        "name": "connectionPortLabel",
+        "writable": true
+      },
+      {
+        "name": "formatInterfaceSpeed",
+        "writable": true
+      },
+      {
+        "name": "baseCableSummary",
+        "writable": false
+      }
+    ],
+    "/core/icon-library.js": [
+      {
+        "name": "installedIconLibrary",
+        "writable": true
+      },
+      {
+        "name": "refreshInstalledIcons",
+        "writable": true
+      },
+      {
+        "name": "applicationIconFor",
+        "writable": true
+      },
+      {
+        "name": "applicationIconMarkup",
+        "writable": true
+      },
+      {
+        "name": "applicationIconField",
+        "writable": true
+      }
+    ],
+    "/core/appearance.js": [
+      {
+        "name": "appearanceControl",
+        "writable": true
+      },
+      {
+        "name": "updateAppearanceControl",
+        "writable": true
+      }
+    ]
+  }
+}

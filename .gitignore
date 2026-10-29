@@ -1,0 +1,25 @@
+data/
+__pycache__/
+.DS_Store
+
+.env
+connectors/*.snapshot.json
+connectors/*.tmp
+secrets/
+plugins/*/secrets/
+plugins/*/.env
+
+worker-jobs/
+
+# Local deployment and audit evidence must not enter a public source release.
+/backups/
+/compose.override.yaml
+/compose.yaml.bak*
+*.db
+*.db-wal
+*.db-shm
+*.log
+._*
+/docs/*
+!/docs/handbook/
+/design-qa.md

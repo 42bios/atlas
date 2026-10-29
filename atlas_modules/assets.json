@@ -1,0 +1,369 @@
+[
+  {
+    "path": "/modules/applications/dependency-map.js",
+    "owner": "applications",
+    "legacy": "/dependency-map.js",
+    "order": 13
+  },
+  {
+    "path": "/modules/applications/views.js",
+    "owner": "applications",
+    "legacy": null,
+    "order": 1.2
+  },
+  {
+    "path": "/modules/applications/actions.js",
+    "owner": "applications",
+    "legacy": null,
+    "order": 2.1
+  },
+  {
+    "path": "/modules/applications/entry.js",
+    "owner": "applications",
+    "order": 103,
+    "legacy": null
+  },
+  {
+    "path": "/modules/applications/workflows.js",
+    "owner": "applications",
+    "legacy": null,
+    "order": 11.15
+  },
+  {
+    "path": "/modules/applications/editor-flows.js",
+    "owner": "applications",
+    "order": 16.1
+  },
+  {
+    "path": "/modules/catalogs/catalog.js",
+    "owner": "catalogs",
+    "legacy": "/catalog.js",
+    "order": 5
+  },
+  {
+    "path": "/modules/catalogs/entry.js",
+    "owner": "catalogs",
+    "order": 107,
+    "legacy": null
+  },
+  {
+    "path": "/modules/catalogs/workflows.js",
+    "owner": "catalogs",
+    "legacy": null,
+    "order": 11.05
+  },
+  {
+    "path": "/modules/connections/discovery.js",
+    "owner": "connections",
+    "legacy": "/discovery.js",
+    "order": 17
+  },
+  {
+    "path": "/modules/connections/connections.js",
+    "owner": "connections",
+    "legacy": "/connections.js",
+    "order": 19
+  },
+  {
+    "path": "/modules/connections/views.js",
+    "owner": "connections",
+    "legacy": null,
+    "order": 1.3
+  },
+  {
+    "path": "/modules/connections/actions.js",
+    "owner": "connections",
+    "legacy": null,
+    "order": 2.2
+  },
+  {
+    "path": "/modules/connections/entry.js",
+    "owner": "connections",
+    "order": 105,
+    "legacy": null
+  },
+  {
+    "path": "/modules/connections/endpoints.js",
+    "owner": "connections",
+    "order": 9.05
+  },
+  {
+    "path": "/modules/connections/tracing.js",
+    "owner": "connections",
+    "order": 10.2
+  },
+  {
+    "path": "/modules/connectors/plugins.js",
+    "owner": "connectors",
+    "legacy": "/plugins.js",
+    "order": 14
+  },
+  {
+    "path": "/modules/connectors/addins.js",
+    "owner": "connectors",
+    "legacy": "/addins.js",
+    "order": 21
+  },
+  {
+    "path": "/modules/connectors/actions.js",
+    "owner": "connectors",
+    "legacy": null,
+    "order": 2.3
+  },
+  {
+    "path": "/modules/connectors/entry.js",
+    "owner": "connectors",
+    "order": 108,
+    "legacy": null
+  },
+  {
+    "path": "/modules/connectors/repository-addins.js",
+    "owner": "connectors",
+    "order": 22.1,
+    "legacy": null
+  },
+  {
+    "path": "/modules/connectors/marketplace.js",
+    "owner": "connectors",
+    "order": 23,
+    "legacy": null
+  },
+  {
+    "path": "/core/app.js",
+    "owner": "core",
+    "legacy": "/app.js",
+    "order": 0
+  },
+  {
+    "path": "/core/views.js",
+    "owner": "core",
+    "legacy": "/views.js",
+    "order": 1
+  },
+  {
+    "path": "/core/actions.js",
+    "owner": "core",
+    "legacy": "/actions.js",
+    "order": 2
+  },
+  {
+    "path": "/core/workflows.js",
+    "owner": "core",
+    "legacy": "/workflows.js",
+    "order": 11
+  },
+  {
+    "path": "/core/graph-ui.js",
+    "owner": "core",
+    "legacy": "/graph-ui.js",
+    "order": 12
+  },
+  {
+    "path": "/core/flows.js",
+    "owner": "core",
+    "legacy": "/flows.js",
+    "order": 16
+  },
+  {
+    "path": "/core/navigation.js",
+    "owner": "core",
+    "legacy": "/navigation.js",
+    "order": 20
+  },
+  {
+    "path": "/core/entry.js",
+    "owner": "core",
+    "order": 100,
+    "legacy": null
+  },
+  {
+    "path": "/core/inventory-data.js",
+    "owner": "core",
+    "order": 0.1
+  },
+  {
+    "path": "/core/icon-library.js",
+    "owner": "core",
+    "order": 12.8,
+    "legacy": null
+  },
+  {
+    "path": "/core/appearance.js",
+    "owner": "core",
+    "order": 1.5,
+    "legacy": null
+  },
+  {
+    "path": "/modules/hardware/stencils.js",
+    "owner": "hardware",
+    "legacy": "/stencils.js",
+    "order": 3
+  },
+  {
+    "path": "/modules/hardware/racks.js",
+    "owner": "hardware",
+    "legacy": "/racks.js",
+    "order": 4
+  },
+  {
+    "path": "/modules/hardware/accessories.js",
+    "owner": "hardware",
+    "legacy": "/accessories.js",
+    "order": 6
+  },
+  {
+    "path": "/modules/hardware/shelf-layout.js",
+    "owner": "hardware",
+    "legacy": "/shelf-layout.js",
+    "order": 7
+  },
+  {
+    "path": "/modules/hardware/rack-placement.js",
+    "owner": "hardware",
+    "legacy": "/rack-placement.js",
+    "order": 8
+  },
+  {
+    "path": "/modules/hardware/inventory.js",
+    "owner": "hardware",
+    "legacy": "/inventory.js",
+    "order": 9
+  },
+  {
+    "path": "/modules/hardware/views.js",
+    "owner": "hardware",
+    "legacy": null,
+    "order": 1.1
+  },
+  {
+    "path": "/modules/hardware/actions.js",
+    "owner": "hardware",
+    "legacy": null,
+    "order": 2.05
+  },
+  {
+    "path": "/modules/hardware/entry.js",
+    "owner": "hardware",
+    "order": 102,
+    "legacy": null
+  },
+  {
+    "path": "/modules/hardware/workflows.js",
+    "owner": "hardware",
+    "legacy": null,
+    "order": 11.1
+  },
+  {
+    "path": "/modules/hardware/model-picker.js",
+    "owner": "hardware",
+    "order": 5.1
+  },
+  {
+    "path": "/modules/hardware/category-editor.js",
+    "owner": "hardware",
+    "order": 9.1
+  },
+  {
+    "path": "/modules/hardware/interface-facts.js",
+    "owner": "hardware",
+    "order": 9.2
+  },
+  {
+    "path": "/modules/hardware/details.js",
+    "owner": "hardware",
+    "order": 20.1
+  },
+  {
+    "path": "/modules/ipam/planning.js",
+    "owner": "ipam",
+    "legacy": "/planning.js",
+    "order": 10
+  },
+  {
+    "path": "/modules/ipam/ipam.js",
+    "owner": "ipam",
+    "legacy": "/ipam.js",
+    "order": 18
+  },
+  {
+    "path": "/modules/ipam/views.js",
+    "owner": "ipam",
+    "legacy": null,
+    "order": 1.15
+  },
+  {
+    "path": "/modules/ipam/actions.js",
+    "owner": "ipam",
+    "legacy": null,
+    "order": 2.15
+  },
+  {
+    "path": "/modules/ipam/entry.js",
+    "owner": "ipam",
+    "order": 104,
+    "legacy": null
+  },
+  {
+    "path": "/modules/ipam/grid.js",
+    "owner": "ipam",
+    "order": 9.15
+  },
+  {
+    "path": "/modules/overview/views.js",
+    "owner": "overview",
+    "legacy": null,
+    "order": 1.05
+  },
+  {
+    "path": "/modules/overview/entry.js",
+    "owner": "overview",
+    "order": 101,
+    "legacy": null
+  },
+  {
+    "path": "/modules/settings/views.js",
+    "owner": "settings",
+    "legacy": null,
+    "order": 1.35
+  },
+  {
+    "path": "/modules/settings/actions.js",
+    "owner": "settings",
+    "legacy": null,
+    "order": 2.25
+  },
+  {
+    "path": "/modules/settings/entry.js",
+    "owner": "settings",
+    "order": 109,
+    "legacy": null
+  },
+  {
+    "path": "/modules/topology/topology-map.js",
+    "owner": "topology",
+    "legacy": "/topology-map.js",
+    "order": 15
+  },
+  {
+    "path": "/modules/topology/views.js",
+    "owner": "topology",
+    "legacy": null,
+    "order": 1.25
+  },
+  {
+    "path": "/modules/topology/entry.js",
+    "owner": "topology",
+    "order": 106,
+    "legacy": null
+  },
+  {
+    "path": "/modules/topology/locations.js",
+    "owner": "topology",
+    "order": 14.9
+  },
+  {
+    "path": "/modules/topology/observed.js",
+    "owner": "topology",
+    "order": 17.1
+  }
+]

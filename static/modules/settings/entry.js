@@ -1,0 +1,1 @@
+AtlasModules.register('settings',{views:{integrations:()=>renderIntegrations()},afterRender:()=>{if(settingsSection==='connections')loadAtlasAddins();else if(settingsSection==='imports')loadConnectors();},leave:()=>{clearTimeout(addinPollTimer);addinPollTimer=null;}});

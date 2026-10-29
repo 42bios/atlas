@@ -1,0 +1,273 @@
+{
+  "id": "ipam",
+  "name": "IP & networks",
+  "description": "Prefixes, VLANs, addresses, reservations and allocation planning.",
+  "version": "1.0.0",
+  "requires": [
+    "core",
+    "hardware"
+  ],
+  "pages": [
+    {
+      "id": "ips",
+      "label": "IP & networks",
+      "icon": "globe",
+      "group": "Network",
+      "order": 5
+    }
+  ],
+  "pluginApi": 1,
+  "backendRoutes": [
+    [
+      "GET",
+      "/api/v1/ipam"
+    ]
+  ],
+  "assets": [
+    {
+      "path": "/modules/ipam/planning.js",
+      "owner": "ipam",
+      "legacy": "/planning.js",
+      "order": 10
+    },
+    {
+      "path": "/modules/ipam/ipam.js",
+      "owner": "ipam",
+      "legacy": "/ipam.js",
+      "order": 18
+    },
+    {
+      "path": "/modules/ipam/views.js",
+      "owner": "ipam",
+      "legacy": null,
+      "order": 1.15
+    },
+    {
+      "path": "/modules/ipam/actions.js",
+      "owner": "ipam",
+      "legacy": null,
+      "order": 2.15
+    },
+    {
+      "path": "/modules/ipam/entry.js",
+      "owner": "ipam",
+      "order": 104,
+      "legacy": null
+    },
+    {
+      "path": "/modules/ipam/grid.js",
+      "owner": "ipam",
+      "order": 9.15
+    }
+  ],
+  "bindings": {
+    "/modules/ipam/planning.js": [
+      {
+        "name": "addressStatus",
+        "writable": true
+      },
+      {
+        "name": "networkStats",
+        "writable": true
+      },
+      {
+        "name": "countText",
+        "writable": false
+      },
+      {
+        "name": "renderIPs",
+        "writable": true
+      },
+      {
+        "name": "ipStatusFilter",
+        "writable": true
+      },
+      {
+        "name": "assignAddressPlan",
+        "writable": true
+      },
+      {
+        "name": "updateAssignmentInterfaces",
+        "writable": true
+      },
+      {
+        "name": "updateAssignmentName",
+        "writable": true
+      },
+      {
+        "name": "addressAssignmentDraft",
+        "writable": true
+      }
+    ],
+    "/modules/ipam/ipam.js": [
+      {
+        "name": "ipamTab",
+        "writable": true
+      },
+      {
+        "name": "ipamLayout",
+        "writable": true
+      },
+      {
+        "name": "ipamFamily",
+        "writable": true
+      },
+      {
+        "name": "ipamScope",
+        "writable": true
+      },
+      {
+        "name": "ipamQuery",
+        "writable": true
+      },
+      {
+        "name": "ipamPage",
+        "writable": true
+      },
+      {
+        "name": "ipamNetworkStatus",
+        "writable": true
+      },
+      {
+        "name": "ipamPageSize",
+        "writable": false
+      },
+      {
+        "name": "ipRange",
+        "writable": true
+      },
+      {
+        "name": "formatIP",
+        "writable": true
+      },
+      {
+        "name": "bestIPNetwork",
+        "writable": true
+      },
+      {
+        "name": "prefixParent",
+        "writable": true
+      },
+      {
+        "name": "suggestedStaticIP",
+        "writable": true
+      },
+      {
+        "name": "ipUsage",
+        "writable": true
+      },
+      {
+        "name": "ipStatusPill",
+        "writable": true
+      },
+      {
+        "name": "ipamSearch",
+        "writable": true
+      },
+      {
+        "name": "ipamCounts",
+        "writable": true
+      },
+      {
+        "name": "ipamTop",
+        "writable": true
+      },
+      {
+        "name": "ipamNetworkTable",
+        "writable": true
+      },
+      {
+        "name": "ipamFamilySelect",
+        "writable": true
+      },
+      {
+        "name": "ipamSlice",
+        "writable": true
+      },
+      {
+        "name": "ipamPagination",
+        "writable": true
+      },
+      {
+        "name": "ipamAddressRows",
+        "writable": true
+      },
+      {
+        "name": "ipamNetworkSummary",
+        "writable": true
+      },
+      {
+        "name": "ipamAddressTable",
+        "writable": true
+      },
+      {
+        "name": "renderIPs",
+        "writable": true
+      },
+      {
+        "name": "ipamAddressMap",
+        "writable": true
+      },
+      {
+        "name": "openIPNetwork",
+        "writable": true
+      },
+      {
+        "name": "baseIPRouteHash",
+        "writable": false
+      },
+      {
+        "name": "baseIPReadRoute",
+        "writable": false
+      },
+      {
+        "name": "ipamEditingPlan",
+        "writable": true
+      },
+      {
+        "name": "updateIPPlanHint",
+        "writable": true
+      },
+      {
+        "name": "navigationIPRows",
+        "writable": false
+      }
+    ],
+    "/modules/ipam/views.js": [
+      {
+        "name": "renderIPsLegacy",
+        "writable": true
+      }
+    ],
+    "/modules/ipam/actions.js": [
+      {
+        "name": "editNetwork",
+        "writable": true
+      },
+      {
+        "name": "editAddress",
+        "writable": true
+      }
+    ],
+    "/modules/ipam/entry.js": [],
+    "/modules/ipam/grid.js": [
+      {
+        "name": "renderIPs",
+        "writable": true
+      },
+      {
+        "name": "ipGridPage",
+        "writable": true
+      },
+      {
+        "name": "ipGridNetwork",
+        "writable": true
+      },
+      {
+        "name": "addressGrid",
+        "writable": true
+      }
+    ]
+  },
+  "required": true
+}

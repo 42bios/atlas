@@ -1,0 +1,26 @@
+.git
+.env
+data
+connectors/*.snapshot.json
+__pycache__
+tests
+
+secrets
+plugins/*/secrets
+plugins/*/.env
+
+backups
+
+worker-jobs
+
+# Ship the handbook, not local inventories, deployment evidence or screenshots.
+docs/*
+!docs/handbook
+design-qa.md
+compose.override.yaml
+compose.yaml.bak*
+*.db
+*.db-wal
+*.db-shm
+*.log
+**/._*
